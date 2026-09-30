@@ -761,7 +761,7 @@ config.libs = [
     ),
     JSystemLib(
         "J2DGraph",
-        ["-O4,s"],
+        ["-O4,s", "-opt", "nopeephole"],
         [
             Object(Matching, "JSystem/J2DGraph/J2DAnimation.cpp"),
             Object(Matching, "JSystem/J2DGraph/J2DAnmLoader.cpp"),
@@ -1016,7 +1016,7 @@ config.libs = [
     ),
     JSystemLib(
         "JUtility",
-        ["-O4,s"],
+        ["-O4,s", "-opt", "nopeephole"],
         [
             Object(Matching, "JSystem/JUtility/JUTAssert.cpp"),
             Object(Matching, "JSystem/JUtility/JUTConsole.cpp"),
