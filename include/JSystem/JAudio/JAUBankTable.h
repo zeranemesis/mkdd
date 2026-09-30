@@ -13,11 +13,8 @@ public:
     {
         _c = param_0;
     }
-    void copyToDefault();
-    bool isAllRegistered() const;
-
     JASBank *getBank(u32 offset) { return mBankPtrTable.get(offset); }
-    virtual JASBank *getBank(u32 offset) const { return mBankPtrTable.get(offset); }
+    virtual JASBank *getBank(u32 offset) const;
     void registBank(u32 offset, JASBank *pBank) { mBankPtrTable.set(offset, pBank); }
 
     JASPtrTable<JASBank> mBankPtrTable; // 04
@@ -32,8 +29,6 @@ public:
 
 struct JAUBankTableDictionary : public JSUList<JAUBankTable> // is this really inherited?
 {
-    void seekBankTable(u32);
-    void removeBankTable(u32);
     void appendBankTable(JSULink<JAUBankTable> *link);
 };
 

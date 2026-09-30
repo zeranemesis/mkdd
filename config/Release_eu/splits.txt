@@ -523,6 +523,10 @@ dolphin/ar/arq.c:
 	.sbss start:0x803D4F48 end:0x803D4F70
 
 
+JSystem/JAudio/Utility/JAUBankTable.cpp:
+	.text start:0x800A3148 end:0x800A318C
+
+
 dolphin/dsp/dsp.c:
 	.text start:0x800B31B8 end:0x800B3308
 	.data start:0x8034FC60 end:0x8034FCE0
