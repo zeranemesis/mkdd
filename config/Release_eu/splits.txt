@@ -718,3 +718,6 @@ JSystem/J3DU/J3DUClipper.cpp:
 	.rodata start:0x8032CD28 end:0x8032CDD0
 	.data start:0x80347AB8 end:0x80347AC8
 	.sdata2 start:0x803D6450 end:0x803D6460
+
+JSystem/J3D/GraphBase/J3DVertex.cpp:
+	.text start:0x8004EB80 end:0x8004EF80

@@ -62,9 +62,9 @@ struct J3DSys
      * These three might be part of a J3DVertexBuffer.
      * See setArray__15J3DVertexBufferCFv.
      */
-    u32 _10C; // _10C
-    u32 _110; // _110
-    u32 _114; // _114 /* bitfield */
+    void* mVtxPos; // _10C
+    void* mVtxNrm; // _110
+    void* mVtxCol; // _114
 
     Vec *_118;
 

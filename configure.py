@@ -787,7 +787,7 @@ config.libs = [
     ),
     JSystemLib(
         "J3D",
-        ["-O4,p"],
+        ["-O4,s", "-opt nopeephole"],
         [
             Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DAnimation.cpp", extra_cflags=j3d_cflags),
             Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DCluster.cpp", extra_cflags=j3d_cflags),

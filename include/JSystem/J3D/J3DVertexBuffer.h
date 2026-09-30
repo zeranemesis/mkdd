@@ -32,6 +32,8 @@ struct J3DVertexBuffer {
 
     void setCurrentVtxCol(GXColor* pVtxCol) { mCurrentVtxColor = pVtxCol; }
 
+    void copyLocalVtxArray(J3DDeformAttachFlag);
+
     void frameInit()
     {
         setCurrentVtxPos(mVtxPos[0]);
