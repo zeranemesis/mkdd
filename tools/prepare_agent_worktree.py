@@ -66,6 +66,17 @@ def main() -> int:
             log("error: original DOL not found at %s" % srcdol)
             return 1
 
+    # The retail link map. tools/map_to_splits.py needs it to derive section
+    # ranges per source file, and it is the only reliable description of which
+    # file owns which address range. Without it agents have to guess boundaries.
+    for rel in ("files/debugInfoS.MAP", "files/debugInfoM.MAP"):
+        s = src / "orig" / "Release_eu" / "sys" / rel
+        d = wt / "orig" / "Release_eu" / "sys" / rel
+        if s.is_file() and not d.is_file():
+            d.parent.mkdir(parents=True, exist_ok=True)
+            log("copying %s (%.1f MB)" % (rel, s.stat().st_size / 1e6))
+            shutil.copy2(s, d)
+
     log("done. Now run, from %s:" % wt)
     log("  python configure.py --version Release_eu")
     log("  ninja")
