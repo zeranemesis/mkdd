@@ -269,6 +269,12 @@ cflags_jsystem = [
     "-rostr",
 ]
 
+# The European retail build of the J3D/J3DU libraries was made with the
+# peephole optimizer disabled, the same way the other JSystem libraries are
+# built for this version.
+j3d_cflags = ["-opt nopeephole"] if config.version == "Release_eu" else []
+j3du_cflags = ["-opt nopeephole"] if config.version == "Release_eu" else []
+
 # Game flags
 cflags_game = [
     *cflags_base,
@@ -783,17 +789,17 @@ config.libs = [
         "J3D",
         ["-O4,p"],
         [
-            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DAnimation.cpp"),
-            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DCluster.cpp"),
-            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DJoint.cpp"), 
-            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DJointTree.cpp"), 
-            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DMaterialAnm.cpp"),
-            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DMaterialAttach.cpp"),
-            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DModel.cpp"),
-            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DModelData.cpp"),
-            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DMtxBuffer.cpp"),
-            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DShapeTable.cpp"),
-            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DSkinDeform.cpp"),                    
+            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DAnimation.cpp", extra_cflags=j3d_cflags),
+            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DCluster.cpp", extra_cflags=j3d_cflags),
+            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DJoint.cpp", extra_cflags=j3d_cflags), 
+            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DJointTree.cpp", extra_cflags=j3d_cflags), 
+            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DMaterialAnm.cpp", extra_cflags=j3d_cflags),
+            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DMaterialAttach.cpp", extra_cflags=j3d_cflags),
+            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DModel.cpp", extra_cflags=j3d_cflags),
+            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DModelData.cpp", extra_cflags=j3d_cflags),
+            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DMtxBuffer.cpp", extra_cflags=j3d_cflags),
+            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DShapeTable.cpp", extra_cflags=j3d_cflags),
+            Object(NonMatching, "JSystem/J3D/GraphAnimator/J3DSkinDeform.cpp", extra_cflags=j3d_cflags),                    
             
             Object(NonMatching, "JSystem/J3D/GraphBase/J3DDrawBuffer.cpp"),
             Object(NonMatching, "JSystem/J3D/GraphBase/J3DGD.cpp"),
@@ -810,26 +816,26 @@ config.libs = [
             Object(NonMatching, "JSystem/J3D/GraphBase/J3DTransform.cpp"),
             Object(NonMatching, "JSystem/J3D/GraphBase/J3DVertex.cpp"),                     
 
-            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DAnmLoader.cpp"),
-            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DBinaryFormat.cpp"),  # might not be in GraphLoader
-            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DClusterLoader.cpp"),            
-            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DJointFactory.cpp"),
-            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DMaterialFactory.cpp"),
-            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DMaterialFactory_v21.cpp"),
-            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DModelLoader.cpp"),
-            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DModelLoaderCalcSize.cpp"),
-            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DModelSaver.cpp"),  # might not be in GraphLoader
-            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DShapeFactory.cpp")
+            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DAnmLoader.cpp", extra_cflags=j3d_cflags),
+            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DBinaryFormat.cpp", extra_cflags=j3d_cflags),  # might not be in GraphLoader
+            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DClusterLoader.cpp", extra_cflags=j3d_cflags),            
+            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DJointFactory.cpp", extra_cflags=j3d_cflags),
+            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DMaterialFactory.cpp", extra_cflags=j3d_cflags),
+            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DMaterialFactory_v21.cpp", extra_cflags=j3d_cflags),
+            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DModelLoader.cpp", extra_cflags=j3d_cflags),
+            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DModelLoaderCalcSize.cpp", extra_cflags=j3d_cflags),
+            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DModelSaver.cpp", extra_cflags=j3d_cflags),  # might not be in GraphLoader
+            Object(NonMatching, "JSystem/J3D/GraphLoader/J3DShapeFactory.cpp", extra_cflags=j3d_cflags)
         ]
     ),
     JSystemLib(
         "J3DU",
         ["-O4,p"],
         [
-            Object(NonMatching, "JSystem/J3DU/J3DUPerf.cpp"),
-            Object(NonMatching, "JSystem/J3DU/J3DUDL.cpp"),
-            Object(NonMatching, "JSystem/J3DU/J3DUMotion.cpp"),
-            Object(Matching, "JSystem/J3DU/J3DUClipper.cpp"),
+            Object(NonMatching, "JSystem/J3DU/J3DUPerf.cpp", extra_cflags=j3du_cflags),
+            Object(NonMatching, "JSystem/J3DU/J3DUDL.cpp", extra_cflags=j3du_cflags),
+            Object(NonMatching, "JSystem/J3DU/J3DUMotion.cpp", extra_cflags=j3du_cflags),
+            Object(Matching, "JSystem/J3DU/J3DUClipper.cpp", extra_cflags=j3du_cflags),
         ]
     ),
     JSystemLib(

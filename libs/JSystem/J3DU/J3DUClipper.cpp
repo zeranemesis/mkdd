@@ -1,7 +1,16 @@
 #include <stdio.h>
-#include <std/math.h>
+#include <math.h>
 #include "JSystem/J3DU/J3DUClipper.h"
 #include "JSystem/JUtility/JUTDbPrint.h"
+
+// The JSystem SDK wraps the double precision libm entry points in float
+// returning helpers. Only tanf is needed here, so it is declared locally
+// instead of pulling in <std/math.h>, which would also emit the sqrtf local
+// statics (_half/_three) into .sdata2.
+namespace std
+{
+extern inline float tanf(float x) { return ::tan(x); }
+}
 
 J3DUClipper::J3DUClipper(f32 fovY, f32 aspect, f32 near, f32 far)
 {
@@ -18,7 +27,8 @@ void J3DUClipper::init()
     mFar = 100000.0f;
 }
 
-// NOTE: needs to be just tanf
+// NOTE: std::tanf is the float wrapper around the double precision libm
+// entry point, so the result is rounded to single right after the call.
 void J3DUClipper::calcViewFrustum()
 {
     // Calculate dimensions of the near plane
