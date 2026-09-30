@@ -29,4 +29,14 @@ int __register_atexit(void (*func)(void))
 {
 }
 
+// Preserve the European retail table, including its repeated destructor entry.
+#ifdef VERSION_Release_eu
+extern void __fini_cpp_exceptions(void);
+__declspec(section ".dtors") static void *const __destroy_global_chain_reference[] = {
+    __destroy_global_chain,
+    __fini_cpp_exceptions,
+    __destroy_global_chain,
+};
+#else
 __declspec(section ".dtors") static void *const __destroy_global_chain_reference = __destroy_global_chain;
+#endif

@@ -1,0 +1,114 @@
+Sections:
+	.init       type:code align:4
+	extab       type:rodata align:16
+	extabindex  type:rodata align:32
+	.text       type:code align:8
+	.ctors      type:rodata align:32
+	.dtors      type:rodata align:32
+	.BINARY     type:rodata align:32
+	.rodata     type:rodata align:8
+	.data       type:data align:16
+	.bss        type:bss align:16
+	.sdata      type:data align:32
+	.sbss       type:bss align:32
+	.sdata2     type:rodata align:32
+	.sbss2      type:bss align:32
+
+kartLocale.cpp:
+	.text       start:0x800056C0 end:0x800057B4
+	.rodata     start:0x8032CBE0 end:0x8032CBF0
+	.data       start:0x80346C20 end:0x80346C58
+	.sdata      start:0x803D3240 end:0x803D3258
+	.sbss       start:0x803D4980 end:0x803D4988
+	.sdata2     start:0x803D63E0 end:0x803D6408
+
+JSystem/JGadget/hashcode.cpp:
+	.text       start:0x800180B4 end:0x8001811C
+
+dolphin/base/PPCArch.c:
+	.text       start:0x800A9600 end:0x800A9714
+
+dolphin/mtx/mtx44vec.c:
+	.text       start:0x800AA380 end:0x800AA3F8
+
+dolphin/mtx/vec.c:
+	.text       start:0x800AA3F8 end:0x800AA594
+	.sdata2     start:0x803D6FD8 end:0x803D6FE0
+
+dolphin/dvd/dvdidutils.c:
+	.text       start:0x800AE8D4 end:0x800AE9CC
+
+dolphin/dsp/dsp_debug.c:
+	.text       start:0x800B3308 end:0x800B3358
+
+dolphin/os/OSArena.c:
+	.text       start:0x800E6D74 end:0x800E6D94
+	.sdata      start:0x803D34F8 end:0x803D3500
+	.sbss       start:0x803D51B8 end:0x803D51C0
+
+dolphin/os/OSMessage.c:
+	.text       start:0x800E8FC4 end:0x800E929C
+
+dolphin/os/OSMutex.c:
+	.text       start:0x800E9644 end:0x800E9890
+
+dolphin/db/db.c:
+	.text       start:0x800F0744 end:0x800F0830
+	.data       start:0x80352460 end:0x80352478
+	.sbss       start:0x803D5288 end:0x803D5290
+
+Runtime/__va_arg.c:
+	.text       start:0x800FEFD0 end:0x800FF098
+
+Runtime/global_destructor_chain.c:
+	.text       start:0x800FF098 end:0x800FF0F8
+	.dtors      start:0x802D8A80 end:0x802D8A8C
+	.sbss       start:0x803D5410 end:0x803D5414
+
+Runtime/CPlusLibPPC.cp:
+	.text       start:0x800FF0F8 end:0x800FF128
+
+Runtime/ptmf.c:
+	.text       start:0x800FF4D4 end:0x800FF554
+	.rodata     start:0x80333A20 end:0x80333A30
+
+Runtime/runtime.c:
+	.text       start:0x800FF554 end:0x800FFC30
+	.rodata     start:0x80333A30 end:0x80333A48
+
+MSL_C/MSL_Common/arith.c:
+	.text       start:0x80102200 end:0x80102210
+
+MSL_C/MSL_Common/bsearch.c:
+	.text       start:0x80102210 end:0x8010230C
+
+MSL_C/PPC_EABI/critical_regions.gamecube.c:
+	.text       start:0x80102410 end:0x8010241C
+
+MSL_C/MSL_Common/mem.c:
+	.text       start:0x801032E4 end:0x8010351C
+
+MSL_C/MSL_Common/mem_funcs.c:
+	.text       start:0x8010351C end:0x8010382C
+
+MSL_C/MSL_Common/string.c:
+	.text       start:0x80106C0C end:0x801070C0
+
+Kameda/Scene.cpp:
+	.text       start:0x8012CFBC end:0x8012D020
+	.data       start:0x803549A0 end:0x803549B8
+
+Kaneshige/ShapePktControl.cpp:
+	.text       start:0x80190134 end:0x80190190
+
+Kaneshige/JugemPoint.cpp:
+	.text       start:0x80190324 end:0x80190334
+
+Kaneshige/RaceTime.cpp:
+	.text       start:0x801B1D9C end:0x801B1DF0
+
+Osako/GPRecord.cpp:
+	.text       start:0x801DBECC end:0x801DC010
+
+Runtime/__mem.c:
+	.init       start:0x80003458 end:0x80003590

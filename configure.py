@@ -1149,7 +1149,12 @@ config.libs = [
             Object(Matching, "Kaneshige/RaceDrawBuffer.cpp"),
             Object(Matching, "Kaneshige/KartDrawer.cpp"),
             Object(Matching, "Kaneshige/TexLODControl.cpp"),
-            Object(Matching, "Kaneshige/ShapePktControl.cpp"),
+            Object(
+                Matching,
+                "Kaneshige/ShapePktControl.cpp",
+                cflags=cflags_game if config.version == "Release_eu"
+                else cflags_game + ["-inline off"],
+            ),
             Object(Matching, "Kaneshige/SimpleDrawer.cpp"),
             Object(Matching, "Kaneshige/JugemPoint.cpp"),
             Object(Matching, "Kaneshige/GeoCar.cpp"),
