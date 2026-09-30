@@ -422,6 +422,11 @@ dolphin/os/OSMemory.c:
 Kameda/Task.cpp:
 	.text start:0x80124A58 end:0x80124DE4
 
+Kameda/Cup2D.cpp:
+	.text       start:0x80176E58 end:0x80176F70
+	.rodata     start:0x8033CAE0 end:0x8033CAEC
+	.sbss       start:0x803D5608 end:0x803D5610
+
 Osako/TARecord.cpp:
 	.text start:0x801DB44C end:0x801DB504
 

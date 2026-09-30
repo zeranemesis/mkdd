@@ -1,10 +1,8 @@
 #include "Kameda/Cup2D.h"
 
-#include "JSystem/JAudio/JASFakeMatch2.h"  // For static initializer
 #include "JSystem/JUtility/JUTAssert.h"
 #include "PowerPC_EABI_Support/MSL_C/MSL_Common/printf.h"
 #include "kartEnums.h"
-#include "mathHelper.h"  // For unused data
 
 Cup2D *Cup2D::mCup2D;
 
