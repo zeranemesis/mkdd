@@ -721,3 +721,44 @@ JSystem/J3DU/J3DUClipper.cpp:
 
 JSystem/J3D/GraphBase/J3DVertex.cpp:
 	.text start:0x8004EB80 end:0x8004EF80
+
+Kaneshige/GeoAirJet.cpp:
+	.text start:0x801A3940 end:0x801A3F84
+	.ctors start:0x802D86F8 end:0x802D86FC
+	.rodata start:0x8033DCC0 end:0x8033DCD0
+	.data start:0x80357670 end:0x80357740
+	.bss start:0x8038A920 end:0x8038A950
+	.sdata2 start:0x803D8CA8 end:0x803D8CD8
+
+Kaneshige/GeoBus.cpp:
+	.text start:0x801935F0 end:0x80193E4C
+
+Kaneshige/GeoTruck.cpp:
+	.text start:0x80193E4C end:0x80194678
+
+Kaneshige/GeoNormCar.cpp:
+	.text start:0x80194FCC end:0x8019588C
+
+Kaneshige/GeoBombCar.cpp:
+	.text start:0x801969BC end:0x80197528
+
+Kaneshige/GeoKuriCar.cpp:
+	.text start:0x80198820 end:0x80198D38
+
+Kaneshige/GeoItemCar.cpp:
+	.text start:0x80198D38 end:0x80199954
+
+Kaneshige/GeoHanaCar.cpp:
+	.text start:0x80199954 end:0x8019A080
+
+Kaneshige/GeoHanaBody.cpp:
+	.text start:0x8019A080 end:0x8019A9A8
+
+Kaneshige/GeoDkCloud.cpp:
+	.text start:0x801A103C end:0x801A1650
+
+Kaneshige/GeoKinojii.cpp:
+	.text start:0x801A973C end:0x801AA380
+
+Kaneshige/GeoShine.cpp:
+	.text start:0x801ACE80 end:0x801ADC58
