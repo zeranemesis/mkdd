@@ -336,6 +336,10 @@ Osako/shadowScr.cpp:
 Osako/GPRecord.cpp:
 	.text       start:0x801DBECC end:0x801DC010
 
+Osako/PadMgr.cpp:
+	.text start:0x801DC0B4 end:0x801DC47C
+	.sbss start:0x803D5C98 end:0x803D5CA0
+
 Osako/ForceEffectMgr.cpp:
 	.text start:0x801DCDF4 end:0x801DCF90
 	.data start:0x8035CBB8 end:0x8035CBC8
