@@ -147,6 +147,7 @@ class ProjectConfig:
         self.binutils_tag: Optional[str] = None  # Git tag
         self.binutils_path: Optional[Path] = None  # If None, download
         self.dtk_tag: Optional[str] = None  # Git tag
+        self.split_update: bool = True  # Allow DTK to update split/symbol inputs
         self.dtk_path: Optional[Path] = None  # If None, download
         self.compilers_tag: Optional[str] = None  # 1
         self.compilers_path: Optional[Path] = None  # If None, download
@@ -1492,7 +1493,7 @@ def generate_build_ninja(
     n.comment("Split DOL into relocatable objects")
     n.rule(
         name="split",
-        command=f"{dtk} dol split $in $out_dir",
+        command=f"{dtk} dol split {'' if config.split_update else '--no-update '}$in $out_dir",
         description="SPLIT $in",
         depfile="$out_dir/dep",
         deps="gcc",

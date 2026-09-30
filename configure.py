@@ -931,8 +931,8 @@ config.libs = [
         "JGadget",
         ["-O4,p"],
         [
-            Object(Matching, "JSystem/JGadget/hashcode.cpp"),
-            Object(Matching, "JSystem/JGadget/linklist.cpp")
+            Object(Matching, "JSystem/JGadget/hashcode.cpp", extra_cflags=['-O4,s', '-opt nopeephole'] if config.version == "Release_eu" else []),
+            Object(Matching, "JSystem/JGadget/linklist.cpp", extra_cflags=['-O4,s', '-opt nopeephole'] if config.version == "Release_eu" else [])
         ]
     ),
     JSystemLib(
@@ -940,27 +940,27 @@ config.libs = [
         ["-O4,s"],
         [
             Object(Matching, "JSystem/JKernel/JKRAram.cpp"),
-            Object(Matching, "JSystem/JKernel/JKRAramArchive.cpp"),
-            Object(Matching, "JSystem/JKernel/JKRAramBlock.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRAramArchive.cpp", extra_cflags=["-opt nopeephole"] if config.version == "Release_eu" else []),
+            Object(Matching, "JSystem/JKernel/JKRAramBlock.cpp", extra_cflags=["-opt nopeephole"] if config.version == "Release_eu" else []),
             Object(Matching, "JSystem/JKernel/JKRAramHeap.cpp"),
             Object(Matching, "JSystem/JKernel/JKRAramPiece.cpp"),
-            Object(Matching, "JSystem/JKernel/JKRAramStream.cpp"),
-            Object(Matching, "JSystem/JKernel/JKRArchivePri.cpp"),
-            Object(Matching, "JSystem/JKernel/JKRArchivePub.cpp"),
-            Object(Matching, "JSystem/JKernel/JKRCompArchive.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRAramStream.cpp", extra_cflags=["-opt nopeephole"] if config.version == "Release_eu" else []),
+            Object(Matching, "JSystem/JKernel/JKRArchivePri.cpp", extra_cflags=["-opt nopeephole"] if config.version == "Release_eu" else []),
+            Object(Matching, "JSystem/JKernel/JKRArchivePub.cpp", extra_cflags=["-opt nopeephole"] if config.version == "Release_eu" else []),
+            Object(Matching, "JSystem/JKernel/JKRCompArchive.cpp", extra_cflags=["-opt nopeephole"] if config.version == "Release_eu" else []),
             Object(Matching, "JSystem/JKernel/JKRDecomp.cpp"),
-            Object(Matching, "JSystem/JKernel/JKRDisposer.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRDisposer.cpp", extra_cflags=['-opt nopeephole'] if config.version == "Release_eu" else []),
             Object(Matching, "JSystem/JKernel/JKRDvdFile.cpp"),
             Object(Matching, "JSystem/JKernel/JKRDvdAramRipper.cpp"),
-            Object(Matching, "JSystem/JKernel/JKRDvdArchive.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRDvdArchive.cpp", extra_cflags=["-opt nopeephole"] if config.version == "Release_eu" else []),
             Object(Matching, "JSystem/JKernel/JKRDvdRipper.cpp"),
-            Object(Matching, "JSystem/JKernel/JKRExpHeap.cpp"),
-            Object(Matching, "JSystem/JKernel/JKRFileCache.cpp"),
-            Object(Matching, "JSystem/JKernel/JKRFileFinder.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRExpHeap.cpp", extra_cflags=["-opt nopeephole"] if config.version == "Release_eu" else []),
+            Object(Matching, "JSystem/JKernel/JKRFileCache.cpp", extra_cflags=['-opt nopeephole'] if config.version == "Release_eu" else []),
+            Object(Matching, "JSystem/JKernel/JKRFileFinder.cpp", extra_cflags=['-opt nopeephole'] if config.version == "Release_eu" else []),
             Object(Matching, "JSystem/JKernel/JKRFileLoader.cpp"),
             Object(Matching, "JSystem/JKernel/JKRHeap.cpp"),
-            Object(Matching, "JSystem/JKernel/JKRMemArchive.cpp"),
-            Object(Matching, "JSystem/JKernel/JKRSolidHeap.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRMemArchive.cpp", extra_cflags=["-opt nopeephole"] if config.version == "Release_eu" else []),
+            Object(Matching, "JSystem/JKernel/JKRSolidHeap.cpp", extra_cflags=["-opt nopeephole"] if config.version == "Release_eu" else []),
             Object(Matching, "JSystem/JKernel/JKRThread.cpp"),
             Object(Matching, "JSystem/JKernel/JKRAssertHeap.cpp")
         ]
@@ -969,8 +969,8 @@ config.libs = [
         "JMath",
         ["-O4,p"],
         [
-            Object(Matching, "JSystem/JMath/JMath.cpp"),
-            Object(Matching, "JSystem/JMath/random.cpp"),
+            Object(Matching, "JSystem/JMath/JMath.cpp", extra_cflags=['-O4,s', '-opt nopeephole'] if config.version == "Release_eu" else []),
+            Object(Matching, "JSystem/JMath/random.cpp", extra_cflags=['-O4,s', '-opt nopeephole'] if config.version == "Release_eu" else []),
             Object(Matching, "JSystem/JMath/JMATrigonometric.cpp")
         ]
     ),
@@ -999,10 +999,13 @@ config.libs = [
         "JSupport",
         ["-O4,p"],
         [
-            Object(Matching, "JSystem/JSupport/JSUInputStream.cpp"),
-            Object(Matching, "JSystem/JSupport/JSUList.cpp"),
-            Object(Matching, "JSystem/JSupport/JSUMemoryStream.cpp"),
-            Object(Matching, "JSystem/JSupport/JSUFileStream.cpp")
+            *([Object(Matching, "JSystem/JSupport/JSUOutputStream.cpp",
+                      extra_cflags=["-O4,s", "-opt nopeephole"])]
+              if config.version == "Release_eu" else []),
+            Object(Matching, "JSystem/JSupport/JSUInputStream.cpp", extra_cflags=['-O4,s', '-opt nopeephole'] if config.version == "Release_eu" else []),
+            Object(Matching, "JSystem/JSupport/JSUList.cpp", extra_cflags=['-O4,s', '-opt nopeephole'] if config.version == "Release_eu" else []),
+            Object(Matching, "JSystem/JSupport/JSUMemoryStream.cpp", extra_cflags=['-O4,s', '-opt nopeephole'] if config.version == "Release_eu" else []),
+            Object(Matching, "JSystem/JSupport/JSUFileStream.cpp", extra_cflags=['-O4,s', '-opt nopeephole'] if config.version == "Release_eu" else [])
         ]
     ),
     JSystemLib(
@@ -1143,7 +1146,7 @@ config.libs = [
             Object(Matching, "Kaneshige/LightMgr.cpp"),
             Object(Matching, "Kaneshige/ScrnShot.cpp"),
             Object(Matching, "Kaneshige/GeoStartLine.cpp"),
-            Object(Matching, "Kaneshige/CenterLine.cpp"),
+            Object(Matching, "Kaneshige/CenterLine.cpp", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"]),
             Object(Matching, "Kaneshige/RaceInfo.cpp"),
             Object(Matching, "Kaneshige/RaceLight.cpp"),
             Object(Matching, "Kaneshige/RaceDrawBuffer.cpp"),
@@ -1155,7 +1158,7 @@ config.libs = [
                 cflags=cflags_game if config.version == "Release_eu"
                 else cflags_game + ["-inline off"],
             ),
-            Object(Matching, "Kaneshige/SimpleDrawer.cpp"),
+            Object(Matching, "Kaneshige/SimpleDrawer.cpp", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"]),
             Object(Matching, "Kaneshige/JugemPoint.cpp"),
             Object(Matching, "Kaneshige/GeoCar.cpp"),
             Object(Matching, "Kaneshige/GeoBus.cpp"),
@@ -1188,7 +1191,7 @@ config.libs = [
             Object(Matching, "Kaneshige/GeoKinojii.cpp"),
             Object(Matching, "Kaneshige/GeoSplash.cpp"),
             Object(Matching, "Kaneshige/GeoTideSensor.cpp"),
-            Object(Matching, "Kaneshige/GhostScreen.cpp"),
+            Object(Matching, "Kaneshige/GhostScreen.cpp", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"]),
             Object(Matching, "Kaneshige/ShimmerScreen.cpp"),
             Object(Matching, "Kaneshige/GeoPuller.cpp"),
             Object(Matching, "Kaneshige/GeoShimmer.cpp"),
@@ -1196,15 +1199,15 @@ config.libs = [
             Object(Matching, "Kaneshige/GeoShine.cpp"),
             Object(Matching, "Kaneshige/DarkAnmMgr.cpp"),
             Object(Matching, "Kaneshige/Movie/MovieApp.cpp"),
-            Object(Matching, "Kaneshige/Movie/MoviePlayer.cpp"),
-            Object(Matching, "Kaneshige/Movie/THPDraw.c"),
+            Object(Matching, "Kaneshige/Movie/MoviePlayer.cpp", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"]),
+            Object(Matching, "Kaneshige/Movie/THPDraw.c", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"]),
             Object(Matching, "Kaneshige/MdlViewer.cpp"),
             Object(Matching, "Kaneshige/RaceTime.cpp"),
             Object(Matching, "Kaneshige/MaskScreen.cpp"),
             Object(Matching, "Kaneshige/THP/THPPlayer.c"),
-            Object(Matching, "Kaneshige/THP/THPVideoDecode.c"),
-            Object(Matching, "Kaneshige/THP/THPRead.c"),
-            Object(Matching, "Kaneshige/THP/THPAudioDecode.c")
+            Object(Matching, "Kaneshige/THP/THPVideoDecode.c", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"]),
+            Object(Matching, "Kaneshige/THP/THPRead.c", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"]),
+            Object(Matching, "Kaneshige/THP/THPAudioDecode.c", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"])
         ]
     ),
     GameLib(
@@ -1473,6 +1476,26 @@ config.libs = [
         ]
     ),
 ]
+
+
+# European retail units are promoted only after a byte-exact DOL validation.
+# This list is independent of the debug-version matching status above.
+if config.version == "Release_eu":
+    config.split_update = False
+    matching_path = Path("config/Release_eu/matching.txt")
+    config.reconfig_deps.append(matching_path)
+    eu_matching = {
+        line.strip() for line in matching_path.read_text().splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    }
+    known_units = {obj.name for lib in config.libs for obj in lib["objects"]}
+    unknown_units = eu_matching - known_units
+    if unknown_units:
+        sys.exit("Unknown European matching units: " + ", ".join(sorted(unknown_units)))
+    if not config.non_matching:
+        for lib in config.libs:
+            for obj in lib["objects"]:
+                obj.completed = obj.name in eu_matching
 
 
 # Optional callback to adjust link order. This can be used to add, remove, or reorder objects.

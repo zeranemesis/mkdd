@@ -1,7 +1,17 @@
+#ifndef VERSION_Release_eu
 #include <dolphin/thp.h>
+#endif
 #include "Kaneshige/THP/THPRead.h"
 #include "Kaneshige/THP/THPAudioDecode.h"
 #include "Kaneshige/THP/THPPlayer.h"
+
+#ifdef VERSION_Release_eu
+// The retail audio worker does not contain the video tables from thp.h.
+#ifdef __cplusplus
+extern "C"
+#endif
+u32 THPAudioDecode(s16 *audioBuffer, u8 *audioFrame, s32 flag);
+#endif
 
 #define STACK_SIZE 4096
 #define BUFFER_COUNT 6

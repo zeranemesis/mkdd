@@ -7,6 +7,9 @@
 u32 SaveFile::msaCRCTable[256];
 bool SaveFile::msCRCTableComputed;
 
+#ifdef VERSION_Release_eu
+inline
+#endif
 void SaveFile::makeCRCTable()
 {
     u32 c;

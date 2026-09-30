@@ -41,7 +41,9 @@ void Task::init()
     mTaskIdx += 2;
 }
 
-Task::~Task() { delete mCurCB; } // UNUSED
+#ifndef VERSION_Release_eu
+Task::~Task() { delete mCurCB; } // UNUSED in European retail
+#endif
 
 Task::TCB *Task::make(TaskFunc func, u16 stackSize)
 {

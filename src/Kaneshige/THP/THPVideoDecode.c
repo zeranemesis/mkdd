@@ -1,8 +1,18 @@
+#ifndef VERSION_Release_eu
 #include <dolphin/thp.h>
+#endif
 #include "Kaneshige/Movie/THPDraw.h"
 #include "Kaneshige/THP/THPRead.h"
 #include "Kaneshige/THP/THPVideoDecode.h"
 #include "Kaneshige/THP/THPPlayer.h"
+
+#ifdef VERSION_Release_eu
+// The worker references the decoder but does not contain its JPEG tables.
+#ifdef __cplusplus
+extern "C"
+#endif
+s32 THPVideoDecode(void *file, void *tileY, void *tileU, void *tileV, void *work);
+#endif
 
 #define STACK_SIZE 4096
 #define BUFFER_COUNT 3

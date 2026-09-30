@@ -21,6 +21,7 @@ void TARecord::setRaceTime(RaceTime raceTime) {
     mTime = raceTime;
 }
 
+#ifndef VERSION_Release_eu
 void TARecord::set(u8 charId1, u8 charId2, u8 kartId, u8 courseId, const char *name, RaceTime raceTime) {
     mCharIDs[0] = charId1;
     mCharIDs[1] = charId2;
@@ -29,6 +30,7 @@ void TARecord::set(u8 charId1, u8 charId2, u8 kartId, u8 courseId, const char *n
     strncpy(mName, name, sizeof(mName));
     setRaceTime(raceTime);
 }
+#endif
 
 bool TARecord::less(const TARecord &mRec) {
     if(mKartID == 0xff)

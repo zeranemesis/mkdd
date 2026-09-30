@@ -5,9 +5,14 @@ DSPTaskInfo *__DSP_curr_task;
 DSPTaskInfo *__DSP_first_task;
 DSPTaskInfo *__DSP_last_task;
 DSPTaskInfo *__DSP_tmp_task;
+#if defined(VERSION_Release_eu)
+// The retail handler is supplied by JAudio and does not use these SDK globals.
+extern DSPTaskInfo *__DSP_rude_task;
+extern BOOL __DSP_rude_task_pending;
+#else
 DSPTaskInfo *__DSP_rude_task;
-
 BOOL __DSP_rude_task_pending;
+#endif
 
 DECL_WEAK void __DSPHandler(__OSInterrupt, OSContext *context)
 {

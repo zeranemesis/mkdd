@@ -1,4 +1,4 @@
-# European retail executable (GM4P01).
+# European retail executable (GM4P01). SHA-1, matching config/Release_eu/build.sha1.
 object_base: orig/Release_eu
 object: sys/main.dol
 hash: f3bf225dd81cd9eb094fa9f8415f95f6bbcb9d10
