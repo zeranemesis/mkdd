@@ -1,12 +1,4 @@
 # European units verified against the complete original DOL SHA-1.
-#
-# Pending (code already byte-exact, split ranges recorded in splits.txt, but the
-# retail symbols are still unnamed so the link cannot resolve them yet):
-#   JSystem/JUtility/JUTResource.cpp  symbols needed at 0x80022F48, 0x80022FE8,
-#                                     0x8002307C, plus fn_80014548
-#   JSystem/JUtility/JUTNameTab.cpp   symbols needed at 0x8001F8B0, 0x8001F8F0,
-#                                     0x8001F92C, 0x8001F968, 0x8001FA04,
-#                                     0x8001FA34, 0x8001FA68
 JSystem/JGadget/hashcode.cpp
 Kameda/Scene.cpp
 Kaneshige/JugemPoint.cpp
@@ -164,3 +156,5 @@ JSystem/J3DU/J3DUClipper.cpp
 Osako/PadMgr.cpp
 Osako/testApp.cpp
 Osako/GameApp.cpp
+JSystem/JUtility/JUTResource.cpp
+JSystem/JUtility/JUTNameTab.cpp
