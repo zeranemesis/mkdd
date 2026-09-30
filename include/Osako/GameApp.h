@@ -11,7 +11,7 @@ public:
     virtual ~GameApp();
     virtual void draw() {};
     virtual void calc() {};
-    virtual void reset() {};
+    virtual void reset();
 
     JKRHeap *getHeap() { return mHeap; }
 

@@ -1,5 +1,6 @@
 #include "Osako/animator.h"
 
+inline
 static void unused_force_data_ordering(double *a)
 {
     *a = 4503601774854144.0;
@@ -18,6 +19,7 @@ void AnimatorWind::reset() {
     mFrameCounter = 0.0f;
 }
 
+inline
 static void unused_force_data_ordering2(float *a)
 {
     *a = 0.0f;

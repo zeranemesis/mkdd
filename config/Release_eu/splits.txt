@@ -336,6 +336,16 @@ Osako/shadowScr.cpp:
 Osako/GPRecord.cpp:
 	.text       start:0x801DBECC end:0x801DC010
 
+Osako/testApp.cpp:
+	.text start:0x801CC01C end:0x801CC11C
+	.data start:0x8035C190 end:0x8035C1A8
+	.sbss start:0x803D5B40 end:0x803D5B44
+	.sdata2 start:0x803D9690 end:0x803D9698
+
+Osako/GameApp.cpp:
+	.text start:0x801CC4A4 end:0x801CC5BC
+	.data start:0x8035C1F0 end:0x8035C208
+
 Osako/PadMgr.cpp:
 	.text start:0x801DC0B4 end:0x801DC47C
 	.sbss start:0x803D5C98 end:0x803D5CA0

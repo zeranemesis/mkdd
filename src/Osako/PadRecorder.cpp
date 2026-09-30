@@ -31,7 +31,7 @@ void PadRecorder::setRecord(int no, KartPadRecord *record)
     mRecord[no] = record;
 }
 
-KartPadRecord *PadRecorder::getRecord(int no)
+inline KartPadRecord *PadRecorder::getRecord(int no)
 {
 #line 78
     JUT_MINMAX_ASSERT(0, no, NUM_PLAYERPADS);
@@ -52,7 +52,7 @@ void PadRecorder::setGhostRecord(int no, KartPadRecord *record)
     mGhostRecord[no] = record;
 }
 
-KartPadRecord *PadRecorder::getGhostRecord(u8 no)
+inline KartPadRecord *PadRecorder::getGhostRecord(u8 no)
 {
 #line 108
     JUT_MINMAX_ASSERT(0, no, NUM_GHOSTPADS);
@@ -118,7 +118,7 @@ void PadRecorder::line(u8 no, KartPadData *padData)
     }
 }
 
-void PadRecorder::playGhost()
+inline void PadRecorder::playGhost()
 {
     for (int i = 0; i < NUM_GHOSTPADS; i++)
     {
