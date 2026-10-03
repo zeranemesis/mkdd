@@ -138,6 +138,15 @@ dolphin/db/db.c:
 	.data       start:0x80352460 end:0x80352478
 	.sbss       start:0x803D5288 end:0x803D5290
 
+dolphin/thp/THPDec.c:
+	.text       start:0x800F0830 end:0x800F7D98
+	.rodata     start:0x803335E0 end:0x80333670
+	.data       start:0x80352478 end:0x803524B4
+	.bss        start:0x803801A0 end:0x803802D0
+	.sdata      start:0x803D3540 end:0x803D3544
+	.sbss       start:0x803D52A0 end:0x803D53B8
+	.sdata2     start:0x803D7120 end:0x803D713C
+
 Runtime/__va_arg.c:
 	.text       start:0x800FEFD0 end:0x800FF098
 
