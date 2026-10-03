@@ -42,6 +42,32 @@ def path_for(name):
     return TEMP / name
 
 
+def sys_link(wt):
+    return wt / "orig" / VERSION / "sys"
+
+
+def unlink_sys(wt):
+    """Delete the orig junction before the worktree goes.
+
+    `git worktree remove --force` deletes the directory recursively, and on
+    Windows a recursive delete follows a directory junction into its target. Doing
+    that here empties the shared orig/<version>/sys tree: it took out the retail
+    main.dol and debugInfoS.MAP once already, which stops the whole project
+    building. os.rmdir on a junction removes the link only, never the target.
+    """
+    link = sys_link(wt)
+    try:
+        if link.is_junction():
+            os.rmdir(str(link))
+            return True
+        if link.is_symlink():
+            os.unlink(str(link))
+            return True
+    except (OSError, AttributeError):
+        pass
+    return False
+
+
 def create(name, branch=None):
     wt = path_for(name)
     branch = branch or name
@@ -104,6 +130,7 @@ def remove(name, force=False):
     if not wt.exists():
         print("nothing at %s" % wt)
         return 0
+    unlink_sys(wt)
     args = ["git", "worktree", "remove"]
     if force:
         args.append("--force")
