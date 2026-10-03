@@ -795,3 +795,10 @@ Kaneshige/GeoKinojii.cpp:
 
 Kaneshige/GeoShine.cpp:
 	.text start:0x801ACE80 end:0x801ADC58
+
+dolphin/eth/eth.c:
+	.text start:0x800E111C end:0x800E3C7C
+	.data start:0x80351750 end:0x803517C4
+	.bss start:0x8037E6E0 end:0x8037F320
+	.sdata start:0x803D34D0 end:0x803D34DD
+	.sbss start:0x803D50F0 end:0x803D5160
