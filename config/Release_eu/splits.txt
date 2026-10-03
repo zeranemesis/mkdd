@@ -38,6 +38,14 @@ dolphin/mtx/vec.c:
 	.text       start:0x800AA3F8 end:0x800AA594
 	.sdata2     start:0x803D6FD8 end:0x803D6FE0
 
+JSystem/JAudio/System/JASHeapCtrl.cpp:
+	.text       start:0x8009067C end:0x80090E14
+
+JSystem/J3D/GraphAnimator/J3DAnimation.cpp:
+	.text       start:0x80057184 end:0x8005AC84
+
+Sato/J3DAnmObject.cpp:
+	.text       start:0x802307B0 end:0x80231248
 dolphin/dvd/dvdidutils.c:
 	.text       start:0x800AE8D4 end:0x800AE9CC
 

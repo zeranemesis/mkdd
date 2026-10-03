@@ -10456,9 +10456,9 @@ setupTransAnmData__14J3DAnmObjTransFPP15J3DAnmTransformPP10J3DMtxCalcP12J3DModel
 attach__14J3DAnmObjTransFP15J3DAnmTransformP10J3DMtxCalc = .text:0x80230878; // type:function size:0x1C
 attachBlend__14J3DAnmObjTransFP15J3DAnmTransformP10J3DMtxCalc = .text:0x80230894; // type:function size:0x28
 anmFrameProc__14J3DAnmObjTransFv = .text:0x802308BC; // type:function size:0x10
-fn_802308CC = .text:0x802308CC; // type:function size:0x198
-fn_80230A64 = .text:0x80230A64; // type:function size:0x1A4
-fn_80230C08 = .text:0x80230C08; // type:function size:0x198
+setupColorAnmData__17J3DAnmObjMaterialFPP11J3DAnmColorP12J3DModelDataPv = .text:0x802308CC; // type:function size:0x198
+setupTexSRTAnmData__17J3DAnmObjMaterialFPP19J3DAnmTextureSRTKeyP12J3DModelDataPv = .text:0x80230A64; // type:function size:0x1A4
+setupTexPatternAnmData__17J3DAnmObjMaterialFPP16J3DAnmTexPatternP12J3DModelDataPv = .text:0x80230C08; // type:function size:0x198
 fn_80230DA0 = .text:0x80230DA0; // type:function size:0x2DC
 loadClusterData__16J3DAnmObjClusterFPP13J3DDeformDataPv = .text:0x8023107C; // type:function size:0x34
 loadClusterAnmData__16J3DAnmObjClusterFPP13J3DAnmClusterPv = .text:0x802310B0; // type:function size:0x38
