@@ -104,13 +104,13 @@ public:
 
     virtual ~ItemShuffleMgr();                                                     // 08
     virtual void calcRaceUseNormalItem(u32 *, KartSlotRankDataSet *, int);         // 0C
-    virtual void calcSpecialItemNum(u32 *, KartSlotRankDataSet *, int, int, bool); // 10
+    virtual void calcSpecialItemNum(s32 *, KartSlotRankDataSet *, int, int, bool); // 10
     virtual int calcRank(KartSlotRankDataSet);                                     // 14
 
     int calcSlot(KartSlotRankDataSet &slotRankData, int p2, int p3, bool p4);
 
     // Inline/Unused
-    void calcRndSpecialRatio(u32 *, ItemShuffleMgr::KartSlotRankDataSet *, bool);
+    inline void calcRndSpecialRatio(s32 *, ItemShuffleMgr::KartSlotRankDataSet *, bool);
     void setKartNumber(int no) { mKartNumber = no; }
     void set_7(bool enable) { _7 = enable; }
     bool isNotRolling() const { return !(mRollFlags & 1) && !(mRollFlags & 2); }
@@ -128,8 +128,8 @@ public:
     ItemRndSpecialShuffleMgr() {}
 
     virtual ~ItemRndSpecialShuffleMgr() {}
-    virtual void calcRaceUseNormalItem(u32 *, KartSlotRankDataSet *, int);
-    virtual void calcSpecialItemNum(u32 *, KartSlotRankDataSet *, int, int, bool);
+    virtual void calcRaceUseNormalItem(s32 *, KartSlotRankDataSet *, int);
+    virtual void calcSpecialItemNum(s32 *, KartSlotRankDataSet *, int, int, bool);
     virtual int calcRank(KartSlotRankDataSet);
 };
 
@@ -139,7 +139,7 @@ public:
     ItemObjMgr();
     virtual ~ItemObjMgr();
     virtual void draw();
-    virtual void callbackColGeoObj() {}
+    virtual void callbackColGeoObj();
 
     enum eDrawSimplModelItemType
     {
