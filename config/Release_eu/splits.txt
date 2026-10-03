@@ -886,6 +886,11 @@ Kaneshige/DemoTimeKeeper.cpp:
 Kaneshige/GeoShine.cpp:
 	.text start:0x801ACE80 end:0x801ADC58
 
+Kaneshige/Course/Course.cpp:
+	.text start:0x80177968 end:0x8017C3A8
+	.ctors start:0x802D8664 end:0x802D8668
+	.sdata start:0x803D3890 end:0x803D38C0
+
 Kaneshige/Course/CrsGround.cpp:
 	.text start:0x8017EA48 end:0x80180F38
 	.ctors start:0x802D866C end:0x802D8670
@@ -1058,7 +1063,10 @@ Kameda/WipeManager.cpp:
 Osako/CardAgent.cpp:
 	.text       start:0x801D36B0 end:0x801D5930
 	.ctors      start:0x802D8790 end:0x802D8794
+	.rodata     start:0x80340CD8 end:0x80340CF8
+	.data       start:0x8035C6D8 end:0x8035C7B8
 	.sbss       start:0x803D5C18 end:0x803D5C48
+	.sdata2     start:0x803D9A50 end:0x803D9A80
 
 JSystem/J2DGraph/J2DManage.cpp:
 	.text       start:0x8003A794 end:0x8003AA4C
