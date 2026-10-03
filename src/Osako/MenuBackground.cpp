@@ -7,7 +7,7 @@ MenuBackground::MenuBackground(JKRArchive *archive)
 {
     mAnimFrame = 0;
     mScreen.setPriority("menu_back.blo", 0x20000, archive);
-    mAnimation = (J2DAnmTextureSRTKey *)J2DAnmLoaderDataBase::load(JKRGetNameResource("menu_back.btk", archive));
+    mAnimation = (J2DAnmTextureSRTKey *)J2DAnmLoaderDataBase::load(JKRGetNameResource("menu_back.btk\0\0", archive));
     mScreen.setAnimation(mAnimation);
 }
 

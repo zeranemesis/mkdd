@@ -94,7 +94,7 @@ void* JKRAram::run() {
 void JKRAram::checkOkAddress(u8* addr, u32 size, JKRAramBlock* block, u32 param_4) {
     if (!IS_ALIGNED((u32)addr, 0x20) && !IS_ALIGNED(size, 0x20)) {
 #line 219
-        JUT_PANIC(":::address not 32Byte aligned.");
+        JUT_PANIC(":::address not 32Byte aligned.\0\0\0\0\0");
     }
 }
 

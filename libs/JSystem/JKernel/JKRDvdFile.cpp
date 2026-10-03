@@ -60,7 +60,7 @@ void JKRDvdFile::close() {
         }
         else {
 #line 213
-            JUT_PANIC("cannot close DVD file\n");
+            JUT_PANIC("cannot close DVD file\n\0");
         }
     }
 }

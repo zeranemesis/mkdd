@@ -325,7 +325,7 @@ u32 JKRDvdArchive::fetchResource_subroutine(long entryNum, u32 offset, u32 size,
 
     case JKRCOMPRESSION_YAY0: {
 #line 754
-        JUT_PANIC("Sorry, not applied SZP archive.\n");
+        JUT_PANIC("Sorry, not applied SZP archive.\n\0\0\0\0\0\0\0");
     }
 
     default: {

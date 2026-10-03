@@ -972,7 +972,7 @@ CW_FORCE_STRINGS(JKRExpHeap_cpp,
     "| ---- FreeLast\n",
     "| ---- UsedFirst\n",
     "| ---- UsedLast\n",
-    "+---------------End\n"
+    "+---------------End\n\0\0\0\0\0\0\0"
 )
 
 void JKRExpHeap::CMemBlock::initiate(JKRExpHeap::CMemBlock *prev, JKRExpHeap::CMemBlock *next, u32 size, u8 groupID, u8 alignment)

@@ -390,7 +390,7 @@ u32 JKRCompArchive::getExpandedResSize(const void *resource) const
     }
     else {
 #line 943
-        JUT_PANIC("illegal resource.");
+        JUT_PANIC("illegal resource.\0\0\0\0\0\0");
     }
     u32 expandSize = JKRDecompExpandSize(bufPtr);
     const_cast<JKRCompArchive *>(this)->setExpandSize(fileEntry, expandSize);

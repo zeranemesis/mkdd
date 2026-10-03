@@ -31,7 +31,7 @@ void GeoAirJet::calc() {
     ExecuteState();
     if(mEmt == nullptr) {
         mRotMtx.setXYZDir(mDirX, mDirY, mDirZ);
-        mEmt = GetJPAMgr()->createEmt("mk_reiki_a", mPos);
+        mEmt = GetJPAMgr()->createEmt("mk_reiki_a\0\0\0\0\0", mPos);
         mEmt->setGlobalRMatrix(mRotMtx);
         mEmt->setGlobalTranslation(mPos);
     }

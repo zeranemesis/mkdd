@@ -241,7 +241,7 @@ u32 JKRMemArchive::fetchResource_subroutine(u8 *src, u32 srcLength, u8 *dst, u32
     default:
     {
 #line 723
-        JUT_PANIC("??? bad sequence\n");
+        JUT_PANIC("??? bad sequence\n\0\0");
         return 0;
     }
     }

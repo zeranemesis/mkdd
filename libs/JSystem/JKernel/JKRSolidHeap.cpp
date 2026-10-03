@@ -271,7 +271,7 @@ bool JKRSolidHeap::dump(void)
 
     u32 totalSize = mHeapSize;
     float percentage = (float)htSize / (float)totalSize * 100.0f;
-    JUTReportConsole_f("%d / %d bytes (%6.2f%%) used\n", htSize, totalSize, percentage);
+    JUTReportConsole_f("%d / %d bytes (%6.2f%%) used\n\0\0\0\0\0\0", htSize, totalSize, percentage);
     unlock();
 
     return result;

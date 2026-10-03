@@ -273,7 +273,7 @@ u32 JKRAramArchive::fetchResource_subroutine(u32 srcAram, u32 size, u8 *data, u3
         return sizeRef;
     default:
 #line 655
-        JUT_PANIC("??? bad sequence\n")
+JUT_PANIC("??? bad sequence\n\0\0")
         return 0;
     }
 }
@@ -309,7 +309,7 @@ u32 JKRAramArchive::fetchResource_subroutine(u32 srcAram, u32 size, JKRHeap *hea
         return resSize;
     default:
 #line 713
-        JUT_PANIC("??? bad sequence\n");
+        JUT_PANIC("??? bad sequence\n\0\0");
         return 0;
     }
 }

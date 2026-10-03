@@ -28,7 +28,7 @@ const char * KartLocale::mscpaLanguageName[] = {
     "French",
     "German",
     "Italian",
-    "Japanese",
+    "Japanese\0\0\0\0\0\0\0",
     "Spanish"
 };
 

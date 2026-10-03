@@ -197,7 +197,7 @@ namespace JKRDvdRipper
             // s32 readoffset = startOffset;
             if (startOffset != 0)
             {
-                JUT_PANIC("Not support SZP with offset read");
+                JUT_PANIC("Not support SZP with offset read\0\0\0\0\0\0\0");
             }
             while (true)
             {

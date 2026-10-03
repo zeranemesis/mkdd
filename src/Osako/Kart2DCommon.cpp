@@ -199,13 +199,13 @@ Kart2DCommon::Kart2DCommon()
         snprintf(buf, sizeof(buf), "timg/ResultCupName_%s_CUP.bti", cpaCupName[i]);
         mCupNameTex[i] = (ResTIMG *)ResMgr::getPtr(ResMgr::mcArcMRAMLoc, buf);
 
-        snprintf(buf, sizeof(buf), "timg/Cup_Pict_%s.bti", cpaCupIcon[i]);
+        snprintf(buf, sizeof(buf), "timg/Cup_Pict_%s.bti\0\0\0\0\0\0\0", cpaCupIcon[i]);
         mCupIconTex[i] = (ResTIMG *)ResMgr::getPtr(ResMgr::mcArcRace2D, buf);
     }
 
     for (i = 0; i < 3; i++)
     {
-        snprintf(buf, sizeof(buf), "timg/Cup_Pict_%s.bti", cpaBattleIcon[i]);
+        snprintf(buf, sizeof(buf), "timg/Cup_Pict_%s.bti\0\0\0\0\0\0\0", cpaBattleIcon[i]);
         mBattleIconTex[i] = (ResTIMG *)ResMgr::getPtr(ResMgr::mcArcRace2D, buf);
     }
 }

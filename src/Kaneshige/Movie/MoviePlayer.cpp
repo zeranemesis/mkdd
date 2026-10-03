@@ -7,7 +7,7 @@ MoviePlayer *MoviePlayer::sPlayer;
 int MoviePlayer::sMovieSelector;
 
 const char *MoviePlayer::cMovieFileNameTable = "Movie/play1.thp";
-const char *MoviePlayer::cMovie50FileNameTable = "Movie/play1_50.thp";
+const char *MoviePlayer::cMovie50FileNameTable = "Movie/play1_50.thp\0\0\0\0\0";
 
 void MoviePlayer::create(JKRHeap *heap)
 {
