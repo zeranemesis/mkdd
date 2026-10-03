@@ -74,18 +74,25 @@ def create(name, branch=None):
 
 def commands(name):
     wt = path_for(name)
-    bd = "build-%s" % name
     print("\n--- agent %s, run from %s ---" % (name, wt))
     print('cd /d "%s"' % wt)
+    # No --build-dir on purpose: configure.py writes the generated include paths
+    # as -i build/<version>/include, hardcoded relative to the repository root, so
+    # redirecting the outputs to build-<name> makes the compiler look for
+    # generated headers in a directory that does not exist and every translation
+    # unit warns about missing includes. The worktree is already isolated, so the
+    # default build/ inside it is the right answer.
     print("python configure.py --version %s \\" % VERSION)
-    print("    --build-dir %s \\" % bd)
     print('    --compilers "%s" \\' % (TOOLCHAIN / "compilers"))
     print('    --binutils "%s" \\' % (TOOLCHAIN / "binutils"))
     print('    --dtk "%s" \\' % (TOOLCHAIN / "tools" / "dtk.exe"))
     print('    --objdiff "%s"' % (TOOLCHAIN / "tools" / "objdiff-cli.exe"))
     print("")
     print("# one unit at a time, never a full link:")
-    print("ninja %s/%s/src/<unit>.o" % (bd, VERSION))
+    print("ninja build/%s/src/<unit>.o" % VERSION)
+    print("")
+    print("# measure against the retail target:")
+    print("python tools/match.py -u main/<unit>")
     print("")
     print("# where the work queue comes from:")
     print('python "%s\\tools\\backlog.py" --limit 40' % ROOT)
