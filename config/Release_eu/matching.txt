@@ -165,4 +165,3 @@ JSystem/JUtility/JUTNameTab.cpp
 Kameda/Cup2D.cpp
 JSystem/JAudio/Utility/JAUBankTable.cpp
 JSystem/JKernel/JKRHeap.cpp
-Kameda/SceneTitle.cpp
