@@ -42,7 +42,7 @@ const char *cpaBattleIcon[3] = {
     "Balloon", "Bomb", "Shine"};
 
 const char *cpaMarkName[5] = {
-    "_Number_Plus", "_Number_XLine", "Exclamation", "Question", "Period"};
+    "_Number_Plus", "_Number_XLine", "Exclamation", "Question", "Period\0"};
 
 #pragma auto_inline off // TODO: hack?
 

@@ -69,7 +69,7 @@ void __fstLoad()
     OSReport("  Company ..... %c%c\n", id->company[0], id->company[1]);
     OSReport("  Disk # ...... %d\n", id->diskNumber);
     OSReport("  Game ver .... %d\n", id->gameVersion);
-    OSReport("  Streaming ... %s\n", (id->streaming == 0) ? "OFF" : "ON");
+    OSReport("  Streaming ... %s\n", (id->streaming == 0) ? "OFF" : "ON\0\0\0\0\0");
     OSReport("\n");
     OSSetArenaHi(bb2->FSTAddress);
 }
