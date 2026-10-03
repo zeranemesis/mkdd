@@ -692,6 +692,10 @@ MSL_C/MSL_Common/ctype.c:
 	.data start:0x80352D90 end:0x80353090
 
 
+MSL_C/MSL_Common/locale.c:
+	.data start:0x80353090 end:0x803530C8
+
+
 JSystem/JKernel/JKRAramArchive.cpp:
 	.text start:0x8000B3B0 end:0x8000BEAC
 	.data start:0x80347B08 end:0x80347B78
@@ -699,9 +703,17 @@ JSystem/JKernel/JKRAramArchive.cpp:
 	.sdata2 start:0x803D6468 end:0x803D6470
 
 
+JSystem/JKernel/JKRAram.cpp:
+	.rodata start:0x8032CDD0 end:0x8032CE00
+
+
 JSystem/JKernel/JKRAramBlock.cpp:
 	.text start:0x8000BEAC end:0x8000C138
 	.data start:0x80347B78 end:0x80347B88
+
+
+JSystem/JKernel/JKRAramPiece.cpp:
+	.rodata start:0x8032CE28 end:0x8032CE98
 
 
 JSystem/JKernel/JKRAramStream.cpp:
@@ -729,11 +741,19 @@ JSystem/JKernel/JKRCompArchive.cpp:
 	.sdata2 start:0x803D6480 end:0x803D6488
 
 
+JSystem/JKernel/JKRDvdFile.cpp:
+	.rodata start:0x8032CF08 end:0x8032CF30
+
+
 JSystem/JKernel/JKRDvdArchive.cpp:
 	.text start:0x80010E4C end:0x80011A44
 	.rodata start:0x8032CF30 end:0x8032CFA8
 	.data start:0x80347D00 end:0x80347D50
 	.sdata2 start:0x803D6490 end:0x803D6498
+
+
+JSystem/JKernel/JKRDvdRipper.cpp:
+	.rodata start:0x8032CFA8 end:0x8032D008
 
 
 JSystem/JKernel/JKRMemArchive.cpp:
