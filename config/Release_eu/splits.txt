@@ -523,7 +523,10 @@ Kaneshige/CenterLine.cpp:
 
 
 Kaneshige/RaceLight.cpp:
-	.text start:0x8018BB3C end:0x8018E444
+	.text start:0x8018BB3C end:0x8018D270
+	.text start:0x8018D3AC end:0x8018D82C
+	.text start:0x8018D8AC end:0x8018DF4C
+	.text start:0x8018DFC0 end:0x8018E444
 	.ctors start:0x802D8690 end:0x802D8694
 	.data start:0x80355BE0 end:0x80355CC0
 
