@@ -4,7 +4,7 @@
 #include "dolphin/os.h"
 
 static const char *__ARVersion =
-    "<< Dolphin SDK - AR\trelease build: Apr 17 2003 12:33:55 (0x2301) >>";
+    "<< Dolphin SDK - AR\trelease build: Apr 17 2003 12:33:55 (0x2301) >>\0\0\0\0";
 
 static ARCallback __AR_Callback;
 static u32 __AR_Size;

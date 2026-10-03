@@ -2,7 +2,7 @@
 #include "dolphin/hw_regs.h"
 #include "dolphin/os.h"
 
-const char *__AIVersion = "<< Dolphin SDK - AI\trelease build: Apr 17 2003 12:33:54 (0x2301) >>";
+const char *__AIVersion = "<< Dolphin SDK - AI\trelease build: Apr 17 2003 12:33:54 (0x2301) >>\0\0\0\0";
 
 static AISCallback __AIS_Callback = NULL;
 static AIDCallback __AID_Callback = NULL;

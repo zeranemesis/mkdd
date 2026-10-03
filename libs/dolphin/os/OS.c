@@ -509,7 +509,7 @@ static void OSExceptionInit(void)
     // downloading the text segments
     *opCodeAddr = oldOpCode;
 
-    DBPrintf("Exceptions initialized...\n");
+    DBPrintf("Exceptions initialized...\n\0");
 }
 
 static asm void __OSDBIntegrator(void)

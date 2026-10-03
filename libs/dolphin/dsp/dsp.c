@@ -56,7 +56,7 @@ void DSPInit(void)
 {
     u32 oldInt;
     u16 reg;
-    __DSP_debug_printf("DSPInit(): Build Date: %s %s\n", "Apr 17 2003", "12:34:16");
+    __DSP_debug_printf("DSPInit(): Build Date: %s %s\n", "Apr 17 2003", "12:34:16\0\0\0");
 
     if (__DSP_init_flag == 1)
     {
