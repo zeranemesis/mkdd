@@ -868,9 +868,12 @@ Sato/JPEffectMgr.cpp:
 
 Yamamoto/kartCamera.cpp:
 	.text start:0x8029DFFC end:0x8029F4B8
+	.ctors start:0x802D89DC end:0x802D89E0
 
 Yamamoto/kartCtrl.cpp:
 	.text start:0x8029F4B8 end:0x802A0A60
+	.ctors start:0x802D89E0 end:0x802D89E4
 
 Kaneshige/RaceMgr.cpp:
 	.text start:0x80186824 end:0x801899A0
+	.ctors start:0x802D867C end:0x802D8680
