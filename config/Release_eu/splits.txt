@@ -856,6 +856,13 @@ Kaneshige/GeoDkCloud.cpp:
 Kaneshige/GeoKinojii.cpp:
 	.text start:0x801A973C end:0x801AA380
 
+Kaneshige/DemoTimeKeeper.cpp:
+	.text start:0x801A6728 end:0x801A973C
+	.ctors start:0x802D8700 end:0x802D8704
+	.data start:0x803578A8 end:0x80357900
+	.bss start:0x8038A980 end:0x8038A9B0
+	.sdata start:0x803D3A10 end:0x803D3A30
+
 Kaneshige/GeoShine.cpp:
 	.text start:0x801ACE80 end:0x801ADC58
 

@@ -1193,7 +1193,7 @@ config.libs = [
             Object(Matching, "Kaneshige/BlurScreen.cpp"),
             Object(Matching, "Kaneshige/GeoRabbitMark.cpp", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"]),
             Object(Matching, "Kaneshige/KartMtx.cpp"),
-            Object(Matching, "Kaneshige/DemoTimeKeeper.cpp"),
+            Object(Matching, "Kaneshige/DemoTimeKeeper.cpp", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"]),
             Object(Matching, "Kaneshige/GeoKinojii.cpp", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"]),
             Object(Matching, "Kaneshige/GeoSplash.cpp", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"]),
             Object(Matching, "Kaneshige/GeoTideSensor.cpp", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"]),
