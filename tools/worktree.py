@@ -46,7 +46,7 @@ def create(name, branch=None):
     wt = path_for(name)
     branch = branch or name
     if wt.exists():
-        print("already exists: %s" % wt)
+        print("already exists: %s (reset it with: git -C %s reset --hard port)" % (wt, wt))
         return 1
     sh("git", "worktree", "add", "-b", branch, str(wt), "port", cwd=str(ROOT))
 
@@ -112,17 +112,24 @@ def remove(name, force=False):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("action", choices=("create", "commands", "remove"))
-    ap.add_argument("name")
+    ap.add_argument("action", choices=("create", "create-many", "commands", "remove"))
+    ap.add_argument("name", nargs="+")
     ap.add_argument("--branch")
     ap.add_argument("--force", action="store_true")
     a = ap.parse_args()
+    if a.action == "create-many":
+        # Sequential on purpose: concurrent `git worktree add` on one repository
+        # races on the ref store, and a wave of ten agents needs all of them.
+        rc = 0
+        for n in a.name:
+            rc |= create(n) or 0
+        return rc
     if a.action == "create":
-        return create(a.name, a.branch)
+        return create(a.name[0], a.branch)
     if a.action == "commands":
-        commands(a.name)
+        commands(a.name[0])
         return 0
-    return remove(a.name, a.force)
+    return remove(a.name[0], a.force)
 
 
 if __name__ == "__main__":

@@ -130,20 +130,52 @@ def source_index(root):
     return idx
 
 
-OBJ = re.compile(r'Object\(\s*[A-Za-z_]\w*\s*,\s*"([^"]+)"')
+OBJ = re.compile(r'Object\(\s*([A-Za-z_]\w*)\s*,\s*"([^"]+)"')
 
 
-def configured_stems(root):
-    """Stems of every object configure.py actually compiles.
+LIB = re.compile(r'(?:GameLib|JSystemLib|DolphinLib|mslLib|trkLib|JSystemGraphLib)\(\s*"[^"]*"\s*,\s*"([^"]+)"')
 
-    The source tree is not the queue: configure.py decides what gets compiled and
-    linked, so a .cpp that exists but is not declared there can never be matched.
-    Units like Yamamoto/kartvec.cpp live in the DOL only as a dtk sinit stub.
+
+def lib_dirs(root):
+    """Every library src_dir declared in configure.py, longest first.
+
+    splits.txt spells a unit relative to its library's source directory, so
+    src/Yamamoto/KartPerCam.cpp becomes Yamamoto/KartPerCam.cpp while
+    libs/JSystem/JKernel/JKRAram.cpp becomes JKernel/JKRAram.cpp. Getting this
+    wrong produces a splits.txt entry dtk silently ignores.
     """
-    out = set()
+    text = (root / "configure.py").read_text(encoding="utf-8", errors="replace")
+    dirs = {m.group(1).replace("\\", "/").rstrip("/") for m in LIB.finditer(text)}
+    return sorted(dirs, key=len, reverse=True)
+
+
+def split_name(rel, dirs):
+    """splits.txt spelling of a repo-relative source path."""
+    rel = rel.replace("\\", "/")
+    for d in dirs:
+        if rel.startswith(d + "/"):
+            return rel[len(d) + 1:]
+    if rel.startswith("src/"):
+        return rel[4:]
+    if rel.startswith("libs/"):
+        return rel[5:]
+    return rel
+
+
+def configured_objects(root):
+    """{stem: status} for every object configure.py declares.
+
+    Matching objects are compiled from source and linked; NonMatching and
+    Equivalent ones are linked from the object dtk extracted, so objdiff would
+    report them 100% matched without a line of C++ ever being written. Only
+    Matching units are attackable as they stand; the others need their configure.py
+    status flipped first, which is why they are counted separately instead of
+    being mixed into the queue.
+    """
+    out = {}
     text = (root / "configure.py").read_text(encoding="utf-8", errors="replace")
     for m in OBJ.finditer(text):
-        out.add(Path(m.group(1)).stem)
+        out.setdefault(Path(m.group(2)).stem, m.group(1))
     return out
 
 
@@ -469,12 +501,13 @@ def build_queue(root, mode="name"):
     # recorded one on 211 units exactly and is a strict subset on 54 more, but
     # still disagrees on a handful, so the recorded value is authoritative.
     rows = []
-    configured = configured_stems(root)
+    objects = configured_objects(root)
     for stem, paths in sorted(srcs.items()):
         rel = paths[0]
         if any(rel.startswith(p) for p in DEAD_PREFIXES):
             continue
-        if stem not in configured:
+        status = objects.get(stem)
+        if status is None:
             continue
         rec = rec_by_path.get(rel)
         ambiguous = len(rec_by_stem.get(stem, [])) > 1 or len(paths) > 1
@@ -502,6 +535,7 @@ def build_queue(root, mode="name"):
             "dead": False,
             "ambiguous": ambiguous,
             "source": source,
+            "obj_status": status,
             "status": ("claimed" if is_claimed else
                        "split" if in_splits else
                        "attributed" if start else "unattributed"),
@@ -571,10 +605,17 @@ def main():
     ap.add_argument("--mode", choices=("name", "size"), default="name",
                     help="attribution method (default: name, exact; size is the fuzzy fallback)")
     ap.add_argument("--min-bytes", type=lambda s: int(s, 0), default=0)
+    ap.add_argument("--max-bytes", type=lambda s: int(s, 0), default=0,
+                    help="hide units larger than this; big units are their own project")
     ap.add_argument("--max-coverage", type=float, default=1.01,
                     help="hide ranges less aligned than this (default 1.01 = keep all)")
     ap.add_argument("--limit", type=int, default=60)
     ap.add_argument("--include-dead", action="store_true")
+    ap.add_argument("--all-status", action="store_true",
+                    help="include NonMatching/Equivalent objects (linked from extracted "
+                         "objects, so they read as matched until configure.py is flipped)")
+    ap.add_argument("--batch", type=int, metavar="N",
+                    help="print ready-to-apply work briefs for the N largest attackable units")
     ap.add_argument("--csv", action="store_true")
     args = ap.parse_args()
 
@@ -656,14 +697,37 @@ def main():
         return 0
 
     sel = [r for r in rows if not r["dead"] or args.include_dead]
+    if not args.all_status:
+        # NonMatching and Equivalent objects are linked from dtk's extracted
+        # object, so they read as 100% without any source. Flipping them is a
+        # deliberate step, not something an agent should do by accident.
+        sel = [r for r in sel if r["obj_status"] == "Matching"]
     if args.unattributed:
         sel = [r for r in sel if r["status"] == "unattributed"]
     if args.min_bytes:
         sel = [r for r in sel if r["bytes"] >= args.min_bytes]
+    if args.max_bytes:
+        sel = [r for r in sel if args.min_bytes <= r["bytes"] <= args.max_bytes]
     if args.max_coverage <= 1.0:
         sel = [r for r in sel if r["coverage"] >= args.max_coverage]
 
-    if args.csv:
+    if args.batch:
+        dirs = lib_dirs(args.root)
+        sel = [r for r in sel if r["status"] == "attributed" and r["bytes"] > 0]
+        for r in sel[:args.batch]:
+            nm = split_name(r["path"], dirs)
+            print("unit      %s" % nm)
+            print("source    %s" % r["path"])
+            print("range     0x%08X - 0x%08X   %d bytes   %d retail functions"
+                  % (r["start"], r["end"], r["bytes"], r["funcs"]))
+            print("split     append to config/Release_eu/splits.txt:")
+            print("%s:" % nm)
+            print("\t.text       start:0x%08X end:0x%08X" % (r["start"], r["end"]))
+            print("objdiff   main/%s" % nm.replace(".cpp", "").replace(".c", "").replace(".C", ""))
+            print("")
+        return 0
+
+    if a.csv:
         w = csv.writer(sys.stdout)
         w.writerow(["stem", "path", "bytes", "start", "end", "funcs",
                     "in_slices", "in_splits", "claimed", "source", "status"])
@@ -686,6 +750,13 @@ def main():
             print("  %-13s %4d units  %10s bytes of .text%s" % (k, counts[k], fmt_int(code[k]), note))
     if amb:
         print("\n  %d attributed units share a stem with another file: check them by hand" % len(amb))
+    by_status = defaultdict(lambda: [0, 0])
+    for r in rows:
+        by_status[r["obj_status"]][0] += 1
+        by_status[r["obj_status"]][1] += r["bytes"]
+    print("  configure.py status over all %d files: %s"
+          % (len(rows), ", ".join("%s %d units/%s B" % (k, v[0], fmt_int(v[1]))
+                                  for k, v in sorted(by_status.items()))))
     if stats:
         print("\n  attribution by name: %d/%d retail functions assigned, %d on object boundaries"
               % (stats["assigned"], stats["retail"], stats["unassigned"]))
