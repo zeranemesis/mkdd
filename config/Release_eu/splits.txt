@@ -39,10 +39,7 @@ dolphin/mtx/vec.c:
 	.sdata2     start:0x803D6FD8 end:0x803D6FE0
 
 JSystem/JAudio/System/JASHeapCtrl.cpp:
-	.text       start:0x8009067C end:0x80090E14
-
-JSystem/J3D/GraphAnimator/J3DAnimation.cpp:
-	.text       start:0x80057184 end:0x8005AC84
+	.text       start:0x80090ACC end:0x80090E14
 
 Sato/J3DAnmObject.cpp:
 	.text       start:0x802307B0 end:0x80231248
@@ -566,9 +563,6 @@ JSystem/JAudio/Utility/JAUBankTable.cpp:
 	.text start:0x800A3148 end:0x800A318C
 	.data start:0x8034F3B0 end:0x8034F3BC
 
-
-JSystem/JAudio/System/JASHeapCtrl.cpp:
-	.text start:0x80090ACC end:0x80090E14
 
 
 dolphin/dsp/dsp.c:
