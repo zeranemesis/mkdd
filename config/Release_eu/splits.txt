@@ -849,6 +849,7 @@ Kaneshige/Course/CrsGround.cpp:
 
 Sato/GeographyObjMgr.cpp:
 	.text start:0x801ED470 end:0x801F6794
+	.ctors start:0x802D87DC end:0x802D87E0
 
 dolphin/eth/eth.c:
 	.text start:0x800E111C end:0x800E3C7C
