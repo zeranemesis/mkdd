@@ -1414,14 +1414,50 @@ global:
   0x8009e8d0: start__8JASTrackFv
   0x8009e8dc: close__8JASTrackFv
   0x8009ebfc: connectChild__8JASTrackFUlP8JASTrack
+  0x8009ec28: closeChild__8JASTrackFUl
+  0x8009ed00: openChild__8JASTrackFUl
+  0x8009f0c4: connectBus__8JASTrackFii
+  0x8009f0d8: setLatestKey__8JASTrackFUc
+  0x8009f118: noteOn__8JASTrackFUlUlUl
+  0x8009f29c: gateOn__8JASTrackFUlUlfUl
+  0x8009f510: noteOff__8JASTrackFUlUs
+  0x8009f590: checkNoteStop__8JASTrackCFUl
+  0x8009f5d4: overwriteOsc__8JASTrackFP10JASChannel
+  0x8009f968: updateSeq__8JASTrackFbf
+  0x8009fcc0: seqTimeToDspTime__8JASTrackFf
+  0x8009fd60: setParam__8JASTrackFUlfUl
+  0x8009fd88: noteOffAll__8JASTrackFUs
+  0x800a0054: setOscTable__8JASTrackFUlPCQ213JASOscillator5Point
+  0x800a0070: setOscAdsr__8JASTrackFssssUs
+  0x800a00c8: setFIR__8JASTrackFPCs
+  0x800a0130: setIIR__8JASTrackFPCs
+  0x800a01d0: writePort__8JASTrackFUlUs
+  0x800a0238: readPort__8JASTrackFUl
   0x800a0018: mute__8JASTrackFb
   0x800a025c: pause__8JASTrackFb
   0x800a0350: getTransposeTotal__8JASTrackCFv  
   0x800a04c0: isMute__8JASTrackCFv
   0x800a0668: setTempo__8JASTrackFUs 
   0x800a0680: setTempoRate__8JASTrackFf
+  0x800a0698: setTimebase__8JASTrackFUs
+  0x800a06b0: channelUpdateCallback__8JASTrackFUlP10JASChannelPQ26JASDsp8TChannelPv
+  0x800a0830: getRootTrack__8JASTrackFv
+  0x800a0848: tickProc__8JASTrackFv
+  0x800a0fe0: seqMain__8JASTrackFv
+  0x800a10b4: cbSeqMain__Q28JASTrack5TListFPv
+  0x800a10d8: append__Q28JASTrack5TListFP8JASTrack
+  0x800a1168: seqMain__Q28JASTrack5TListFv
+  0x800a13e0: noteOff__Q28JASTrack11TChannelMgrFUlUs
+  0x800a146c: setPauseFlag__Q28JASTrack11TChannelMgrFb
 
   0x800a14f4: __ct__Q28JASTrack10MoveParam_Fv
+  0x800a150c: __sinit_JASTrack_cpp
+  0x800a16a8: __dt__Q28JASTrack5TListFv
+  0x800a1708: __dt__19JASDefaultBankTableFv
+  0x800a1784: free__35JASMemPool_MultiThreaded<8JASTrack>FPvUl
+  0x800a17e4: free__50JASMemPool_MultiThreaded<Q28JASTrack11TChannelMgr>FPvUl
+  0x800a1844: __dl__43JASPoolAllocObject_MultiThreaded<8JASTrack>FPvUl
+  0x800a189c: __dl__58JASPoolAllocObject_MultiThreaded<Q28JASTrack11TChannelMgr>FPvUl
   0x8034d498: __vt__19JASDefaultBankTable
   0x8034d4a4: __vt__17JASBankTable<256>
   0x8034d4b0: __vt__11JASBankList
