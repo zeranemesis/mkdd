@@ -39,7 +39,32 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OBJDIFF = "objdiff.json"
-BINUTILS = ROOT / "build" / "binutils"
+
+
+def main_root(root):
+    """The checkout that owns the toolchain.
+
+    An agent works in its own worktree, which deliberately has no copy of
+    build/binutils or build/tools: tools/worktree.py points configure.py at the
+    main tree instead. So resolve the shared tools through the git common dir
+    rather than through the worktree we happen to be standing in.
+    """
+    r = subprocess.run(["git", "rev-parse", "--git-common-dir"],
+                       capture_output=True, text=True, cwd=str(root))
+    if r.returncode == 0:
+        common = Path(r.stdout.strip())
+        if not common.is_absolute():
+            common = (root / common).resolve()
+        # <repo>/.git for a plain checkout, <repo>/.git/worktrees/<name> for one
+        if common.parent.name == "worktrees":
+            return common.parent.parent.parent
+        if common.name == ".git":
+            return common.parent
+    return root
+
+
+MAIN = main_root(ROOT)
+BINUTILS = MAIN / "build" / "binutils"
 OBJDUMP = BINUTILS / "powerpc-eabi-objdump.exe"
 NM = BINUTILS / "powerpc-eabi-nm.exe"
 SCRATCH = "build/match"
@@ -186,8 +211,20 @@ def compile_command(root, base_path, out_dir):
     for line in reversed(r.stdout.splitlines()):
         line = line.strip()
         if "-c " in line and "mwcceppc" in line:
-            return line
+            # build.ninja refers to the toolchain by its relative path inside the
+            # main tree; in a worktree that path does not exist, so rebase it.
+            return rebase_tools(line, main_root(root))
     raise RuntimeError("no mwcc command for %s" % base_path)
+
+
+def rebase_tools(cmd, main):
+    out = []
+    for tok in shlex.split(cmd, posix=False):
+        t = tok.strip('"')
+        if t.startswith("build\\") or t.startswith("build/"):
+            tok = '"%s"' % (main / t)
+        out.append(tok)
+    return " ".join(out)
 
 
 def run_variant(cmd, drop_seqs, add_tokens, out_dir):
