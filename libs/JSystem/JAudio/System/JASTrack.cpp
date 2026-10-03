@@ -384,7 +384,7 @@ int JASTrack::gateOn(u32 p1, u32 velocity, f32 time, u32 flags) {
             }
         }
     }
-    mFlags.flag4 = (flags >> 1) & 1;
+    mFlags.flag4 = (flags & 2) ? true : false;
     _22b = p1;
     return 1;
 }

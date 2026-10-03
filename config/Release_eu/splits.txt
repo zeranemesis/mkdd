@@ -41,6 +41,9 @@ dolphin/mtx/vec.c:
 JSystem/JAudio/System/JASHeapCtrl.cpp:
 	.text       start:0x80090ACC end:0x80090E14
 
+JSystem/JAudio/System/JASTrack.cpp:
+	.text       start:0x8009E0F8 end:0x800A1918
+
 Sato/J3DAnmObject.cpp:
 	.text       start:0x802307B0 end:0x80231248
 dolphin/dvd/dvdidutils.c:
