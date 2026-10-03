@@ -51,7 +51,7 @@ dolphin/dvd/emu_level2/fstload.c:
 	.data       start:0x8034F748 end:0x8034F7B8
 	.bss        start:0x80371158 end:0x803711C8
 	.sdata      start:0x803D33C0 end:0x803D33D0
-	.sbss       start:0x803D4E78 end:0x803D4E88
+	.sbss       start:0x803D4E78 end:0x803D4E84
 
 dolphin/vi/vi.c:
 	.text       start:0x800AEC3C end:0x800B0A64
@@ -106,8 +106,8 @@ dolphin/os/OS.c:
 
 dolphin/os/OSArena.c:
 	.text       start:0x800E6D74 end:0x800E6D94
-	.sdata      start:0x803D34F8 end:0x803D3500
-	.sbss       start:0x803D51B8 end:0x803D51C0
+	.sdata      start:0x803D34F8 end:0x803D34FC
+	.sbss       start:0x803D51B8 end:0x803D51BC
 
 dolphin/os/OSAudioSystem.c:
 	.text start:0x800E6D94 end:0x800E7028
@@ -136,7 +136,7 @@ dolphin/os/OSSync.c:
 dolphin/si/SISamplingRate.c:
 	.text start:0x800EFF90 end:0x800F0098
 	.data start:0x803523C8 end:0x80352460
-	.sbss start:0x803D5270 end:0x803D5278
+	.sbss start:0x803D5270 end:0x803D5274
 
 dolphin/db/db.c:
 	.text       start:0x800F0744 end:0x800F0830
@@ -157,7 +157,7 @@ Runtime/__va_arg.c:
 
 Runtime/global_destructor_chain.c:
 	.text       start:0x800FF098 end:0x800FF0F8
-	.dtors      start:0x802D8A80 end:0x802D8A8C
+	.dtors      start:0x802D8A80 end:0x802D8A88
 	.sbss       start:0x803D5410 end:0x803D5414
 
 Runtime/CPlusLibPPC.cp:
@@ -294,7 +294,7 @@ MSL_C/MSL_Common_Embedded/Math/Double_precision/w_sqrt.c:
 
 Bando/EngineSound.cpp:
 	.text start:0x8011226C end:0x801122DC
-	.data start:0x80353590 end:0x803535E8
+	.data start:0x80353590 end:0x803535E4
 
 Inagaki/GameAudioFxConfig.cpp:
 	.text start:0x80122D7C end:0x80122EC8
@@ -321,7 +321,7 @@ Kaneshige/THP/THPVideoDecode.c:
 Kaneshige/THP/THPRead.c:
 	.text start:0x801B41DC end:0x801B44F8
 	.bss start:0x8038D118 end:0x8038E508
-	.sbss start:0x803D5AD8 end:0x803D5AE0
+	.sbss start:0x803D5AD8 end:0x803D5ADC
 
 Kaneshige/THP/THPAudioDecode.c:
 	.text start:0x801B44F8 end:0x801B48A8
@@ -330,7 +330,7 @@ Kaneshige/THP/THPAudioDecode.c:
 
 Osako/clock.cpp:
 	.text start:0x801CBE60 end:0x801CBEF8
-	.sbss start:0x803D5B30 end:0x803D5B40
+	.sbss start:0x803D5B30 end:0x803D5B3C
 	.sdata2 start:0x803D9668 end:0x803D9680
 
 Osako/main.cpp:
@@ -346,7 +346,7 @@ Osako/systemData.cpp:
 	.ctors start:0x802D8798 end:0x802D879C
 	.rodata start:0x80340D38 end:0x80340E88
 	.data start:0x8035C868 end:0x8035C928
-	.sbss start:0x803D5C48 end:0x803D5C58
+	.sbss start:0x803D5C48 end:0x803D5C54
 	.sdata2 start:0x803D9A88 end:0x803D9AA8
 
 Osako/shadowScr.cpp:
@@ -373,8 +373,8 @@ Osako/PadMgr.cpp:
 
 Osako/ForceEffectMgr.cpp:
 	.text start:0x801DCDF4 end:0x801DCF90
-	.data start:0x8035CBB8 end:0x8035CBC8
-	.sbss start:0x803D5CA0 end:0x803D5CA8
+	.data start:0x8035CBB8 end:0x8035CBC4
+	.sbss start:0x803D5CA0 end:0x803D5CA4
 
 Osako/Kart2DCommon.cpp:
 	.text start:0x801DE664 end:0x801DEC78
@@ -387,7 +387,7 @@ Osako/Kart2DCommon.cpp:
 Osako/MenuBackground.cpp:
 	.text start:0x801E7124 end:0x801E7210
 	.rodata start:0x80341808 end:0x80341828
-	.sbss start:0x803D5CD0 end:0x803D5CD8
+	.sbss start:0x803D5CD0 end:0x803D5CD4
 	.sdata2 start:0x803D9D10 end:0x803D9D18
 
 Osako/GIRecord.cpp:
@@ -460,22 +460,22 @@ Osako/TARecord.cpp:
 
 JSystem/JSupport/JSUOutputStream.cpp:
 	.text start:0x800173E4 end:0x80017434
-	.data start:0x80347FA0 end:0x80347FB0
+	.data start:0x80347FA0 end:0x80347FAC
 
 JSystem/JSupport/JSUInputStream.cpp:
 	.text start:0x80017434 end:0x800177B0
-	.data start:0x80347FB0 end:0x80347FF0
+	.data start:0x80347FB0 end:0x80347FEC
 
 JSystem/JSupport/JSUList.cpp:
 	.text start:0x800177B0 end:0x80017D14
 
 JSystem/JSupport/JSUMemoryStream.cpp:
 	.text start:0x80017D14 end:0x80017E94
-	.data start:0x80347FF0 end:0x80348018
+	.data start:0x80347FF0 end:0x80348014
 
 JSystem/JSupport/JSUFileStream.cpp:
 	.text start:0x80017E94 end:0x800180B4
-	.data start:0x80348018 end:0x80348040
+	.data start:0x80348018 end:0x8034803C
 
 JSystem/JGadget/linklist.cpp:
 	.text start:0x8001811C end:0x800182A0
@@ -493,7 +493,7 @@ JSystem/JMath/JMath.cpp:
 
 JSystem/JKernel/JKRDisposer.cpp:
 	.text start:0x8000FA00 end:0x8000FAEC
-	.data start:0x80347CC8 end:0x80347CD8
+	.data start:0x80347CC8 end:0x80347CD4
 
 JSystem/JKernel/JKRFileCache.cpp:
 	.text start:0x8001421C end:0x8001426C
@@ -505,7 +505,7 @@ JSystem/JKernel/JKRFileFinder.cpp:
 
 JSystem/JKernel/JKRHeap.cpp:
 	.text start:0x8001482C end:0x80015818
-	.rodata start:0x8032D380 end:0x8032D390
+	.rodata start:0x8032D380 end:0x8032D38C
 	.data start:0x80347E10 end:0x80347E70
 	.sdata start:0x803D3278 end:0x803D3280
 	.sbss start:0x803D4AA0 end:0x803D4AC8
@@ -518,7 +518,7 @@ Kaneshige/CenterLine.cpp:
 Kaneshige/SimpleDrawer.cpp:
 	.text start:0x80190190 end:0x80190324
 	.sdata start:0x803D38F0 end:0x803D38F8
-	.sbss start:0x803D5660 end:0x803D5668
+	.sbss start:0x803D5660 end:0x803D5664
 
 
 Kaneshige/GhostScreen.cpp:
@@ -528,7 +528,7 @@ Kaneshige/GhostScreen.cpp:
 Kaneshige/Movie/MoviePlayer.cpp:
 	.text start:0x801B0084 end:0x801B0458
 	.rodata start:0x8033DD98 end:0x8033DDC0
-	.data start:0x80357FB8 end:0x80357FC8
+	.data start:0x80357FB8 end:0x80357FC4
 	.sdata start:0x803D3A70 end:0x803D3A78
 	.sbss start:0x803D5AB0 end:0x803D5AB8
 
@@ -540,22 +540,22 @@ Kaneshige/Movie/THPDraw.c:
 
 dolphin/ai/ai.c:
 	.text start:0x800B0A64 end:0x800B1348
-	.data start:0x8034FB88 end:0x8034FBD0
-	.sdata start:0x803D33E0 end:0x803D33E8
+	.data start:0x8034FB88 end:0x8034FBCC
+	.sdata start:0x803D33E0 end:0x803D33E4
 	.sbss start:0x803D4EE8 end:0x803D4F28
 
 
 dolphin/ar/ar.c:
 	.text start:0x800B1348 end:0x800B2E1C
-	.data start:0x8034FBD0 end:0x8034FC18
-	.sdata start:0x803D33E8 end:0x803D33F0
+	.data start:0x8034FBD0 end:0x8034FC14
+	.sdata start:0x803D33E8 end:0x803D33EC
 	.sbss start:0x803D4F28 end:0x803D4F48
 
 
 dolphin/ar/arq.c:
 	.text start:0x800B2E1C end:0x800B31B8
 	.data start:0x8034FC18 end:0x8034FC60
-	.sdata start:0x803D33F0 end:0x803D33F8
+	.sdata start:0x803D33F0 end:0x803D33F4
 	.sbss start:0x803D4F48 end:0x803D4F70
 
 
@@ -568,8 +568,8 @@ JSystem/JAudio/Utility/JAUBankTable.cpp:
 dolphin/dsp/dsp.c:
 	.text start:0x800B31B8 end:0x800B3308
 	.data start:0x8034FC60 end:0x8034FCE0
-	.sdata start:0x803D33F8 end:0x803D3400
-	.sbss start:0x803D4F70 end:0x803D4F78
+	.sdata start:0x803D33F8 end:0x803D33FC
+	.sbss start:0x803D4F70 end:0x803D4F74
 
 
 dolphin/dsp/dsp_task.c:
@@ -580,13 +580,13 @@ dolphin/dsp/dsp_task.c:
 
 dolphin/os/OSAlloc.c:
 	.text start:0x800E6B60 end:0x800E6D74
-	.sdata start:0x803D34F0 end:0x803D34F8
+	.sdata start:0x803D34F0 end:0x803D34F4
 	.sbss start:0x803D51A8 end:0x803D51B8
 
 
 dolphin/os/OSReset.c:
 	.text start:0x800E9BEC end:0x800EA010
-	.sbss start:0x803D51E8 end:0x803D51F8
+	.sbss start:0x803D51E8 end:0x803D51F4
 
 
 dolphin/os/OSContext.c:
@@ -598,7 +598,7 @@ MSL_C/MSL_Common/alloc.c:
 	.text start:0x800FFF24 end:0x8010059C
 	.rodata start:0x80333AC0 end:0x80333AD8
 	.bss start:0x80385DF8 end:0x80385E30
-	.sbss start:0x803D5428 end:0x803D5430
+	.sbss start:0x803D5428 end:0x803D542C
 
 
 MSL_C/MSL_Common/ansi_files.c:
@@ -621,7 +621,7 @@ MSL_C/MSL_Common/FILE_POS.C:
 
 MSL_C/MSL_Common/mbstring.c:
 	.text start:0x80102ED0 end:0x801032E4
-	.sdata2 start:0x803D71A0 end:0x803D71A8
+	.sdata2 start:0x803D71A0 end:0x803D71A4
 
 
 MSL_C/MSL_Common/misc_io.c:
@@ -631,7 +631,7 @@ MSL_C/MSL_Common/misc_io.c:
 MSL_C/MSL_Common/printf.c:
 	.text start:0x8010383C end:0x80105A20
 	.rodata start:0x80333BC0 end:0x80333BE8
-	.data start:0x803530C8 end:0x803532F8
+	.data start:0x803530C8 end:0x803532F4
 	.sdata start:0x803D3810 end:0x803D3818
 	.sdata2 start:0x803D71A8 end:0x803D71B0
 
@@ -653,12 +653,12 @@ MSL_C/MSL_Common/wchar_io.c:
 
 MSL_C/MSL_Common_Embedded/uart_console_io_gcn.c:
 	.text start:0x801090BC end:0x801091B0
-	.sbss start:0x803D5438 end:0x803D5440
+	.sbss start:0x803D5438 end:0x803D543C
 
 
 dolphin/os/OSRtc.c:
 	.text start:0x800EA3BC end:0x800EAFB8
-	.bss start:0x8037F460 end:0x8037F4B8
+	.bss start:0x8037F460 end:0x8037F4B4
 
 
 dolphin/os/OSAlarm.c:
@@ -670,7 +670,7 @@ dolphin/os/OSAlarm.c:
 dolphin/os/OSReboot.c:
 	.text start:0x800E9890 end:0x800E9BEC
 	.bss start:0x8037F440 end:0x8037F460
-	.sbss start:0x803D51D8 end:0x803D51E8
+	.sbss start:0x803D51D8 end:0x803D51E4
 
 
 dolphin/pad/Padclamp.c:
@@ -709,7 +709,7 @@ JSystem/JKernel/JKRAram.cpp:
 
 JSystem/JKernel/JKRAramBlock.cpp:
 	.text start:0x8000BEAC end:0x8000C138
-	.data start:0x80347B78 end:0x80347B88
+	.data start:0x80347B78 end:0x80347B84
 
 
 JSystem/JKernel/JKRAramPiece.cpp:
@@ -718,7 +718,7 @@ JSystem/JKernel/JKRAramPiece.cpp:
 
 JSystem/JKernel/JKRAramStream.cpp:
 	.text start:0x8000C908 end:0x8000CEB0
-	.rodata start:0x8032CE98 end:0x8032CEC8
+	.rodata start:0x8032CE98 end:0x8032CEC4
 	.data start:0x80347B98 end:0x80347BD8
 	.sbss start:0x803D49D8 end:0x803D49E8
 	.sdata2 start:0x803D6478 end:0x803D6480
@@ -726,7 +726,7 @@ JSystem/JKernel/JKRAramStream.cpp:
 
 JSystem/JKernel/JKRArchivePri.cpp:
 	.text start:0x8000CEB0 end:0x8000DB44
-	.sbss start:0x803D49E8 end:0x803D49F0
+	.sbss start:0x803D49E8 end:0x803D49EC
 
 
 JSystem/JKernel/JKRArchivePub.cpp:
