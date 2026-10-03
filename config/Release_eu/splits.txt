@@ -825,3 +825,8 @@ dolphin/eth/eth.c:
 
 Sato/ObjUtility.cpp:
 	.text start:0x80225590 end:0x802260E4
+
+Sato/JPEffectMgr.cpp:
+	.text start:0x801FCD40 end:0x801FE5AC
+	.sdata start:0x803D3BC0 end:0x803D3BE0
+	.sbss start:0x803D5D40 end:0x803D5D50
