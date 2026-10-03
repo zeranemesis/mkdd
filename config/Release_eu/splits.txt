@@ -1031,3 +1031,6 @@ Yamamoto/KartPipe.cpp:
 
 Yamamoto/KartAnt.cpp:
 	.sdata2  start:0x803DC030 end:0x803DC050
+
+Osako/CardAgent.cpp:
+	.text       start:0x801D36B0 end:0x801D5930
