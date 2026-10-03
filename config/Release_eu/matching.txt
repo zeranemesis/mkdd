@@ -166,3 +166,7 @@ JSystem/JUtility/JUTNameTab.cpp
 Kameda/Cup2D.cpp
 JSystem/JAudio/Utility/JAUBankTable.cpp
 JSystem/JKernel/JKRHeap.cpp
+JSystem/JUtility/JUTProcBar.cpp
+Kaneshige/KartChecker.cpp
+Kameda/WipeManager.cpp
+Osako/CardAgent.cpp

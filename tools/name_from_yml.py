@@ -13,8 +13,12 @@ where it and symbols.txt both name an address they agree 3358 times out of 3388
 Safety rules:
   - an address symbols.txt already names is never touched, so the hand-verified
     names and the current link cannot regress;
-  - a name that already exists elsewhere in symbols.txt is skipped and reported
-    (that pair is a real disagreement between the two files, not a rename);
+  - a name that already exists elsewhere in symbols.txt, or that symbols.yml
+    itself lists at two addresses, is skipped and reported. Both would give the
+    linker two definitions of one name: symbols.yml carries a few duplicated
+    destructor entries (0x80018df0 and 0x8007a984 are both
+    __dt__13J2DOrthoGraphFv) and writing either one makes the link fail with
+    "multiply-defined";
   - only "  0xADDR: name" mapping lines are read, so the build log that has been
     appended to symbols.yml cannot inject a name;
   - the symbol's section, type, size, scope and comment are preserved verbatim;
@@ -50,7 +54,9 @@ def load_yml(path):
         if not (LO <= addr < HI):
             continue
         names.setdefault(addr, m.group(2))
-    return names, junk
+    tally = Counter(names.values())
+    dupe = {n for n, c in tally.items() if c > 1}
+    return names, junk, dupe
 
 
 def load_txt(path):
@@ -75,7 +81,7 @@ def main():
     sym_path = root / ("config/%s/symbols.txt" % args.version)
     yml_path = root / ("config/%s/symbols.yml" % args.version)
 
-    yml, junk = load_yml(yml_path)
+    yml, junk, yml_dupe = load_yml(yml_path)
     rows = load_txt(sym_path)
     at = {addr: name for addr, name in rows}
     counts = Counter(name for _, name in rows)
@@ -96,13 +102,14 @@ def main():
 
     upgrades = [(a, at[a], yml[a]) for a in yml
                 if a in at and at[a].startswith(PLACEHOLDER) and not yml[a].startswith(PLACEHOLDER)]
-    blocked = [u for u in upgrades if counts[u[2]] > 0]
-    free = [u for u in upgrades if counts[u[2]] == 0]
+    blocked = [u for u in upgrades if counts[u[2]] > 0 or u[2] in yml_dupe]
+    free = [u for u in upgrades if counts[u[2]] == 0 and u[2] not in yml_dupe]
 
-    print("\nnames available for a placeholder address: %d (blocked by collision: %d)"
+    print("\nnames available for a placeholder address: %d (blocked: %d)"
           % (len(upgrades), len(blocked)))
     for addr, old, new in blocked:
-        print("   0x%08X %-12s -> %s (already used elsewhere)" % (addr, old, new))
+        why = "already used elsewhere" if counts[new] > 0 else "duplicated in symbols.yml"
+        print("   0x%08X %-12s -> %s (%s)" % (addr, old, new, why))
 
     secs = Counter()
     for line in sym_path.read_text(encoding="utf-8").splitlines():

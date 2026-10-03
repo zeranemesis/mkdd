@@ -1032,8 +1032,30 @@ Yamamoto/KartPipe.cpp:
 Yamamoto/KartAnt.cpp:
 	.sdata2  start:0x803DC030 end:0x803DC050
 
+JSystem/JUtility/JUTProcBar.cpp:
+	.text       start:0x8001FBDC end:0x80021D38
+	.sdata      start:0x803D32A8 end:0x803D32B0
+	.sbss       start:0x803D4B60 end:0x803D4B78
+	.sdata2     start:0x803D6668 end:0x803D66B0
+
+JSystem/J2DGraph/J2DAnimation.cpp:
+	.text       start:0x8004ACC8 end:0x8004D918
+	.data       start:0x803492D0 end:0x803493A0
+	.sdata2     start:0x803D6918 end:0x803D6940
+
+Kaneshige/KartChecker.cpp:
+	.text       start:0x80184598 end:0x801866C0
+	.ctors      start:0x802D8678 end:0x802D867C
+	.data       start:0x80355AA0 end:0x80355AD0
+	.sdata      start:0x803D38C8 end:0x803D38D8
+	.sbss       start:0x803D5620 end:0x803D5628
+
 Kameda/WipeManager.cpp:
 	.text       start:0x80129F18 end:0x8012C188
+	.ctors      start:0x802D85E8 end:0x802D85EC
+	.sbss       start:0x803D5540 end:0x803D5558
 
 Osako/CardAgent.cpp:
 	.text       start:0x801D36B0 end:0x801D5930
+	.ctors      start:0x802D8790 end:0x802D8794
+	.sbss       start:0x803D5C18 end:0x803D5C48
