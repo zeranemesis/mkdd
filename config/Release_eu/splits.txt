@@ -570,7 +570,7 @@ Kawano/driver.cpp:
 
 
 Kawano/driverMgr.cpp:
-	.rodata start:0x8033E280 end:0x8033EC08
+	.rodata start:0x8033E280 end:0x8033EC04
 	.data start:0x8035AF88 end:0x8035B218
 
 
