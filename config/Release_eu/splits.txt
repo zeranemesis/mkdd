@@ -847,6 +847,10 @@ Kaneshige/GeoNormCar.cpp:
 
 Kaneshige/GeoCannon.cpp:
 	.text start:0x8019588C end:0x801969BC
+	.ctors start:0x802D86B4 end:0x802D86B8
+	.rodata start:0x8033D780 end:0x8033D808
+	.data start:0x803563D8 end:0x80356560
+	.sdata2 start:0x803D8A18 end:0x803D8A40
 
 Kaneshige/GeoBombCar.cpp:
 	.text start:0x801969BC end:0x80197528
