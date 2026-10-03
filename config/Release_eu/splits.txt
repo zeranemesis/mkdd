@@ -846,6 +846,12 @@ Kaneshige/GeoAirJet.cpp:
 
 Kaneshige/GeoCar.cpp:
 	.text start:0x801903AC end:0x801935F0
+	.ctors start:0x802D86A0 end:0x802D86A4
+	.data start:0x80355D78 end:0x80356010
+	.bss start:0x8038A500 end:0x8038A530
+	.sdata start:0x803D38F8 end:0x803D3930
+	.sbss start:0x803D5668 end:0x803D5670
+	.sdata2 start:0x803D88F8 end:0x803D8940
 
 Kaneshige/GeoBus.cpp:
 	.text start:0x801935F0 end:0x80193E4C

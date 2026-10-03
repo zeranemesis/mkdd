@@ -3563,6 +3563,11 @@ global:
   0x801935d8: @332@InitExec__6GeoCarFv
   0x801935e0: @332@MoveExec__6GeoCarFv
   0x801935e8: @332@__dt__6GeoCarFv
+  # .sbss: the two strong statics of this file. sSupervisorCreateNum__6GeoCar is
+  # the 2-byte symbol that follows SimpleDrawer's .sdata tail at 0x803D5668 and
+  # sSupervisor__6GeoCar the 4-byte one at 0x803D566C; both were lbl_ placeholders.
+  0x803d5668: sSupervisorCreateNum__6GeoCar
+  0x803d566c: sSupervisor__6GeoCar
 
   # GeoCannon.cpp
   0x801960ac: initAnm__33TAnmControlBase<14J3DAnmObjTrans>FUcP7ExModel
