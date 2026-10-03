@@ -3549,6 +3549,18 @@ global:
   # JugemPoint.cpp
   0x80190324: __ct__10JugemPointFv
 
+  # GeoCar.cpp
+  # The four @-names are MWCC's spelling for this file's anonymous statics and are
+  # confirmed verbatim by the JP link map (debugInfoS.MAP:65830-65833, where the JP
+  # source sits four lines lower and they read @336@).
+  0x8019046c: calc__16GeoCarSupervisorFv
+  0x80190844: init__6GeoCarFb
+  0x80192374: checkTargetPoint__6GeoCarFv
+  0x801935d0: @36@__dt__16GeoCarSupervisorFv
+  0x801935d8: @332@InitExec__6GeoCarFv
+  0x801935e0: @332@MoveExec__6GeoCarFv
+  0x801935e8: @332@__dt__6GeoCarFv
+
   # GeoCannon.cpp
   0x801960ac: initAnm__33TAnmControlBase<14J3DAnmObjTrans>FUcP7ExModel
   0x80196180: __dt__14J3DAnmObjTransFv
