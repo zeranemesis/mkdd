@@ -1469,7 +1469,7 @@ void ItemObjMgr::drawColModel(u32) {}
 
 void ItemObjMgr::callbackColGeoObj() {}
 
-void ItemObjMgr::setLANDebugInfo()
+void ItemObjMgr::draw()
 {
     if (sLANDbgDataPtr == nullptr || sLANDbgKartPadBuffer == nullptr)
         return;
@@ -1499,7 +1499,7 @@ void ItemObjMgr::setLANDebugInfo()
     }
 }
 
-void ItemObjMgr::draw()
+void ItemObjMgr::setLANDebugInfo()
 {
     JUTReport(20, 60, "SlotTable");
     // i have a feeling this is inlined / has some sort of macro
