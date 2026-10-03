@@ -727,7 +727,7 @@ def main():
             print("")
         return 0
 
-    if a.csv:
+    if args.csv:
         w = csv.writer(sys.stdout)
         w.writerow(["stem", "path", "bytes", "start", "end", "funcs",
                     "in_slices", "in_splits", "claimed", "source", "status"])
