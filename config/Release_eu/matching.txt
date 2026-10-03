@@ -171,3 +171,4 @@ Kaneshige/KartChecker.cpp
 Kameda/WipeManager.cpp
 Osako/CardAgent.cpp
 JSystem/J2DGraph/J2DManage.cpp
+JSystem/J2DGraph/J2DAnimation.cpp
