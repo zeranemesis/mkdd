@@ -246,7 +246,7 @@ void RaceCupLight::draw() {
     mAmbient.draw();
 }
 
-MenuSceneLight::MenuSceneLight(Mtx m) : LtObjDiffuse("前", 0) {
+inline MenuSceneLight::MenuSceneLight(Mtx m) : LtObjDiffuse("前", 0) {
     mViewMtx = m;
     mColor.set(0xff, 0xff, 0xff, 0xff);
 
