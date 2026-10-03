@@ -150,7 +150,10 @@ void GeoCannon::update() {
             }
             else {
                 mpaEmitter[i]->setGlobalRMatrix(mRotMtx);
-                JGeometry::TVec3f translation(anmMtx[0][3], anmMtx[1][3], anmMtx[2][3]);
+                JGeometry::TVec3f translation;
+                translation.x = anmMtx[0][3];
+                translation.y = anmMtx[1][3];
+                translation.z = anmMtx[2][3];
                 mpaEmitter[i]->setGlobalTranslation(translation);
             }
         }
