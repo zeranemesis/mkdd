@@ -964,7 +964,7 @@ config.libs = [
             Object(Matching, "JSystem/JKernel/JKRFileCache.cpp", extra_cflags=['-opt nopeephole'] if config.version == "Release_eu" else []),
             Object(Matching, "JSystem/JKernel/JKRFileFinder.cpp", extra_cflags=['-opt nopeephole'] if config.version == "Release_eu" else []),
             Object(Matching, "JSystem/JKernel/JKRFileLoader.cpp"),
-            Object(Matching, "JSystem/JKernel/JKRHeap.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRHeap.cpp", extra_cflags=["-opt nopeephole"] if config.version == "Release_eu" else []),
             Object(Matching, "JSystem/JKernel/JKRMemArchive.cpp", extra_cflags=["-opt nopeephole"] if config.version == "Release_eu" else []),
             Object(Matching, "JSystem/JKernel/JKRSolidHeap.cpp", extra_cflags=["-opt nopeephole"] if config.version == "Release_eu" else []),
             Object(Matching, "JSystem/JKernel/JKRThread.cpp"),
