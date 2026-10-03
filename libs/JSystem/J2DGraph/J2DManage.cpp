@@ -39,13 +39,13 @@ s8* J2DResReference::getResReference(u16 idx) const
 
 char* J2DResReference::getName(u16 idx) const
 {
-    static char p_name[0x101];
+    static u8 p_name[0x108];
 
     s8* ref = getResReference(idx);
 
     if (ref == nullptr) {
         p_name[0] = 0;
-        return p_name;
+        return (char*)p_name;
     }
 
     switch (ref[0]) {
@@ -80,5 +80,5 @@ char* J2DResReference::getName(u16 idx) const
         p_name[0] = 0;
     }
 
-    return p_name;
+    return (char*)p_name;
 }
