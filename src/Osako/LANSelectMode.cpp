@@ -513,22 +513,23 @@ LANSelectMode::LANSelectMode(JKRArchive *pArchive) : mBackground(pArchive) {
     mAnmFrame = 0;
 
     char buf[0x40];
-    for (int  i = 0; i < 3; i++) {
+    int i;
+    for (i = 0; i < 3; i++) {
         snprintf(buf, sizeof(buf), "timg/%s.bti", cpaGameModeTex[i]);
         mGameModeImg[i] = (ResTIMG *)pArchive->getResource(buf);
     }
 
-    for (int  i = 0; i < 4; i++) {
+    for (i = 0; i < 4; i++) {
         snprintf(buf, sizeof(buf), "timg/Power_Mozi.%d.bti", i + 1);
         mPowerImg[i] = (ResTIMG*)pArchive->getResource(buf);
     }
 
-    for (int  i = 0; i < 2; i++) {
+    for (i = 0; i < 2; i++) {
         snprintf(buf, sizeof(buf), "timg/Mozi_Order%s01.bti", cpaLabelNameTex[i]);
         mOrderImg[i] = (ResTIMG*)pArchive->getResource(buf);
     }
 
-    for (int  i = 0; i < 7; i++) {
+    for (i = 0; i < 7; i++) {
         snprintf(buf, sizeof(buf), "timg/%s.bti", cpaCrsOrderTex[i]);
         mCrsOrderImg[i] = (ResTIMG*)pArchive->getResource(buf);
     }
@@ -541,29 +542,29 @@ LANSelectMode::LANSelectMode(JKRArchive *pArchive) : mBackground(pArchive) {
     snprintf(buf, sizeof(buf), "timg/%s.bti", cpaStageOrderTex[1]);
     mStageOrderImg[1] = (ResTIMG*)pArchive->getResource(buf);
 
-    for (int  i = 0; i < 2; i++) {
+    for (i = 0; i < 2; i++) {
         snprintf(buf, sizeof(buf), "timg/Mozi_%sSelect01.bti", cpaLabelNameTex[i]);
         mSelectImg[i] = (ResTIMG*)pArchive->getResource(buf);
     }
 
-    for (int i = 0; i < 0x10; i++) {
+    for (i = 0; i < 0x10; i++) {
         snprintf(buf, sizeof(buf), "timg/CoName_%s.bti", cpaCrsNameTex[i]);
         mCrsNameImg[i] = (ResTIMG*)pArchive->getResource(buf);
     }
 
-    for (int i = 0; i < 6; i++) {
+    for (i = 0; i < 6; i++) {
         snprintf(buf, sizeof(buf), "timg/Mozi_Map%d.bti", i + 1);
         mMapImg[i] = (ResTIMG*)pArchive->getResource(buf);
     }
 
     std::swap(mMapImg[5], mMapImg[4]);
 
-    for (int i = 0; i < 2; i++) {
+    for (i = 0; i < 2; i++) {
         snprintf(buf, sizeof(buf), "timg/Mozi_%s.bti", cpaTagTex[i]);
         mTagImg[i] = (ResTIMG*)pArchive->getResource(buf);
     }
 
-    for (int i = 0; i < 3; i++) {
+    for (i = 0; i < 3; i++) {
 #line 820
         J2DPane *pPane = mScreen.search(0x436f6c30ull + i);
         JUT_ASSERT(pPane->getTypeID() == J2DPaneType_Picture);

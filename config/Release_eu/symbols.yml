@@ -4326,6 +4326,11 @@ global:
   0x801e7124: __ct__14MenuBackgroundFP10JKRArchive
   0x801e71a8: calc__14MenuBackgroundFv
   0x803d5cd0: mspMenuBackground__14MenuBackground
+  # LANSelectMode.cpp (only the two ctors symbols.txt could not name)
+  0x801e1558: __ct__Q213LANSelectMode14SelectableItemFUlP9J2DScreenPvPvPviiUl
+  0x801e2c28: __ct__13LANSelectModeFP10JKRArchive
+  # LANPlayInfo.cpp, needed as soon as LANSelectMode.cpp links
+  0x803d0a60: gLANPlayInfo
   # MenuTitleLine.cpp
   0x801e7210: __ct__13MenuTitleLineFP10JKRArchive
   0x801e73a0: drop__13MenuTitleLineFQ213MenuTitleLine5Title
