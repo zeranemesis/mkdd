@@ -154,6 +154,7 @@ Kaneshige/THP/THPVideoDecode.c
 dolphin/os/OS.c
 dolphin/thp/THPDec.c
 dolphin/vi/vi.c
+dolphin/eth/eth.c
 dolphin/dvd/emu_level2/fstload.c
 MSL_C/MSL_Common/float.c
 JSystem/J3DU/J3DUClipper.cpp
