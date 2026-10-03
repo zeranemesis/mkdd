@@ -321,7 +321,7 @@ Kaneshige/THP/THPRead.c:
 Kaneshige/THP/THPAudioDecode.c:
 	.text start:0x801B44F8 end:0x801B48A8
 	.bss start:0x8038E508 end:0x8038F890
-	.sbss start:0x803D5AE0 end:0x803D5AE8
+	.sbss start:0x803D5AE0 end:0x803D5AE4
 
 Osako/clock.cpp:
 	.text start:0x801CBE60 end:0x801CBEF8
