@@ -20,6 +20,7 @@ Runtime/runtime.c
 dolphin/base/PPCArch.c
 dolphin/db/db.c
 dolphin/dsp/dsp_debug.c
+dolphin/dvd/dvd.c
 dolphin/dvd/dvdidutils.c
 dolphin/mtx/mtx44vec.c
 dolphin/mtx/vec.c

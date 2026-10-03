@@ -396,6 +396,13 @@ dolphin/mtx/mtx.c:
 	.sdata start:0x803D3390 end:0x803D3398
 	.sdata2 start:0x803D6FA0 end:0x803D6FC0
 
+dolphin/dvd/dvd.c:
+	.text start:0x800ABE10 end:0x800AE544
+	.data start:0x8034F580 end:0x8034F700
+	.bss start:0x803710A0 end:0x80371138
+	.sdata start:0x803D33A8 end:0x803D33C0
+	.sbss start:0x803D4E28 end:0x803D4E70
+
 dolphin/dvd/dvdqueue.c:
 	.text start:0x800AE544 end:0x800AE73C
 	.bss start:0x80371138 end:0x80371158
