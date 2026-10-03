@@ -845,6 +845,9 @@ Kaneshige/GeoTruck.cpp:
 Kaneshige/GeoNormCar.cpp:
 	.text start:0x80194FCC end:0x8019588C
 
+Kaneshige/GeoCannon.cpp:
+	.text start:0x8019588C end:0x801969BC
+
 Kaneshige/GeoBombCar.cpp:
 	.text start:0x801969BC end:0x80197528
 
