@@ -777,6 +777,9 @@ Kaneshige/GeoAirJet.cpp:
 	.bss start:0x8038A920 end:0x8038A950
 	.sdata2 start:0x803D8CA8 end:0x803D8CD8
 
+Kaneshige/GeoCar.cpp:
+	.text start:0x801903AC end:0x801935F0
+
 Kaneshige/GeoBus.cpp:
 	.text start:0x801935F0 end:0x80193E4C
 
@@ -800,6 +803,9 @@ Kaneshige/GeoHanaCar.cpp:
 
 Kaneshige/GeoHanaBody.cpp:
 	.text start:0x8019A080 end:0x8019A9A8
+
+Kaneshige/GeoCarShadow.cpp:
+	.text start:0x8019A9A8 end:0x8019B248
 
 Kaneshige/GeoDkCloud.cpp:
 	.text start:0x801A103C end:0x801A1650
