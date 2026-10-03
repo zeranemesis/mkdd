@@ -870,19 +870,10 @@ dolphin/eth/eth.c:
 Sato/ObjUtility.cpp:
 	.text start:0x80225590 end:0x802260E4
 
-Sato/JPEffectMgr.cpp:
-	.text start:0x801FCD40 end:0x801FE5AC
-	.sdata start:0x803D3BC0 end:0x803D3BE0
-	.sbss start:0x803D5D40 end:0x803D5D50
-
-Yamamoto/kartCamera.cpp:
-	.text start:0x8029DFFC end:0x8029F4B8
-	.ctors start:0x802D89DC end:0x802D89E0
-
-Yamamoto/kartCtrl.cpp:
-	.text start:0x8029F4B8 end:0x802A0A60
-	.ctors start:0x802D89E0 end:0x802D89E4
-
 Kaneshige/RaceMgr.cpp:
 	.text start:0x80186824 end:0x801899A0
 	.ctors start:0x802D867C end:0x802D8680
+
+Sato/ItemObjMgr.cpp:
+	.text start:0x80207C54 end:0x8020D834
+	.ctors start:0x802D880C end:0x802D8810
