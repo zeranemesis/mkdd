@@ -892,6 +892,7 @@ Kaneshige/GeoRabbitMark.cpp:
 
 Sato/GeoItemBox.cpp:
 	.text start:0x801FAE30 end:0x801FCD40
+	.sdata2  start:0x803D9E88 end:0x803D9ED0
 
 Sato/StateObserver.cpp:
 	.text start:0x80235D80 end:0x80235EA4
@@ -913,3 +914,113 @@ Kaneshige/RaceMgr.cpp:
 Sato/ItemObjMgr.cpp:
 	.text start:0x80207C54 end:0x8020D834
 	.ctors start:0x802D880C end:0x802D8810
+Sato/GeographyObj.cpp:
+	.sdata2  start:0x803D9DD8 end:0x803D9DF8
+
+Sato/GeoTree.cpp:
+	.sdata2  start:0x803D9DF8 end:0x803D9E30
+
+Sato/ObjCollision.cpp:
+	.sdata2  start:0x803D9E30 end:0x803D9E70
+
+Sato/stEfctWeed.cpp:
+	.sdata2  start:0x803DA100 end:0x803DA108
+
+Sato/ItemKinoko.cpp:
+	.sdata2  start:0x803DA108 end:0x803DA128
+
+Sato/ItemStar.cpp:
+	.sdata2  start:0x803DA128 end:0x803DA140
+
+Sato/StringObj.cpp:
+	.sdata2  start:0x803DA188 end:0x803DA1C0
+
+Sato/GeoObjPathMove.cpp:
+	.sdata2  start:0x803DA378 end:0x803DA388
+
+Sato/AnmController.cpp:
+	.sdata2  start:0x803DA3E8 end:0x803DA408
+
+Sato/ItemYoshiEgg.cpp:
+	.sdata2  start:0x803DA570 end:0x803DA5C0
+
+Shiraiwa/JugemMain.cpp:
+	.sdata2  start:0x803DA720 end:0x803DA7B0
+
+Shiraiwa/JugemLap.cpp:
+	.sdata2  start:0x803DA7B0 end:0x803DA7C0
+
+Shiraiwa/Interp.cpp:
+	.sdata2  start:0x803DA7C0 end:0x803DA7E8
+
+Shiraiwa/JugemStart.cpp:
+	.sdata2  start:0x803DA7F0 end:0x803DA800
+
+Shiraiwa/JugemRodBoard.cpp:
+	.sdata2  start:0x803DA800 end:0x803DA818
+
+Shiraiwa/JugemRodSignal.cpp:
+	.sdata2  start:0x803DA818 end:0x803DA858
+
+Shiraiwa/AnmPlayer.cpp:
+	.sdata2  start:0x803DA8F8 end:0x803DA918
+
+Shiraiwa/SiUtil.cpp:
+	.sdata2  start:0x803DAB08 end:0x803DAB38
+
+Shiraiwa/WipeSlide.cpp:
+	.sdata2  start:0x803DADE0 end:0x803DAE00
+
+Shiraiwa/WipeBase.cpp:
+	.sdata2  start:0x803DAE00 end:0x803DAE18
+
+Shiraiwa/WipeCircle.cpp:
+	.sdata2  start:0x803DAE18 end:0x803DAE38
+
+Shiraiwa/WipeCheck.cpp:
+	.sdata2  start:0x803DB2F0 end:0x803DB308
+
+Shiraiwa/WipeShut.cpp:
+	.sdata2  start:0x803DB308 end:0x803DB330
+
+Shiraiwa/WipeLine.cpp:
+	.sdata2  start:0x803DB330 end:0x803DB350
+
+Shiraiwa/WipeWave.cpp:
+	.sdata2  start:0x803DB350 end:0x803DB368
+
+Shiraiwa/WipeCurtain.cpp:
+	.sdata2  start:0x803DB408 end:0x803DB428
+
+Shiraiwa/SecretScene.cpp:
+	.sdata2  start:0x803DB430 end:0x803DB4B8
+
+Yamamoto/kartCamera.cpp:
+	.sdata2  start:0x803DB590 end:0x803DB5A8
+
+Yamamoto/kartCtrl.cpp:
+	.sdata2  start:0x803DB5A8 end:0x803DB5C0
+
+Yamamoto/kartLine.cpp:
+	.sdata2  start:0x803DB998 end:0x803DB9A0
+
+Yamamoto/kartCtrlInfo.cpp:
+	.sdata2  start:0x803DB9A0 end:0x803DBA98
+
+Yamamoto/KartSound.cpp:
+	.sdata2  start:0x803DBBE8 end:0x803DBC08
+
+Yamamoto/KartTaeget.cpp:
+	.sdata2  start:0x803DBC08 end:0x803DBC10
+
+Yamamoto/KartCrash.cpp:
+	.sdata2  start:0x803DBDB0 end:0x803DBE60
+
+Yamamoto/KartHandle.cpp:
+	.sdata2  start:0x803DBFF8 end:0x803DC000
+
+Yamamoto/KartPipe.cpp:
+	.sdata2  start:0x803DC000 end:0x803DC030
+
+Yamamoto/KartAnt.cpp:
+	.sdata2  start:0x803DC030 end:0x803DC050
