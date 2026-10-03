@@ -1146,7 +1146,7 @@ config.libs = [
             Object(Matching, "Kaneshige/KartLoader.cpp"),
             Object(Matching, "Kaneshige/KartInfo.cpp"),
             Object(Matching, "Kaneshige/KartChecker.cpp"),
-            Object(Matching, "Kaneshige/RaceMgr.cpp"),
+            Object(Matching, "Kaneshige/RaceMgr.cpp", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"]),
             Object(Matching, "Kaneshige/SysDebug.cpp"),
             Object(Matching, "Kaneshige/CrsArea.cpp"),
             Object(Matching, "Kaneshige/LightMgr.cpp"),
