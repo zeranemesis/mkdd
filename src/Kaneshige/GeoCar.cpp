@@ -287,9 +287,9 @@ void GeoCar::reset() {
 
 void GeoCar::setTargetPoint(u16 targetId) {
     CrsData *crsData = RaceMgr::getManager()->getCourse()->getCrsData();
-    u16 pointId = targetId; // probably fake
     CrsData::PathData *pathData = crsData->getPathData(mObjData->pathID);
-   
+    u16 pointId = targetId; // probably fake
+
     if (pointId == 0xffff) {
         pointId = 0; 
     }
