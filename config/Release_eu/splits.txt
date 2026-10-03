@@ -810,3 +810,6 @@ dolphin/eth/eth.c:
 	.bss start:0x8037E6E0 end:0x8037F320
 	.sdata start:0x803D34D0 end:0x803D34DD
 	.sbss start:0x803D50F0 end:0x803D5160
+
+Sato/ObjUtility.cpp:
+	.text start:0x80225590 end:0x802260E4
