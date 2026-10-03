@@ -200,7 +200,7 @@ void GeoCar::init(bool p1) {
     sSupervisor->entryCar(this, p1);
 }
 
-static void calcOffsetPosition(JGeometry::TVec3f *out, JGeometry::TVec3f &basePos, JGeometry::TVec3f &scale, JGeometry::TVec3f &dirX, JGeometry::TVec3f &dirY, JGeometry::TVec3f &dirZ) {
+static inline void calcOffsetPosition(JGeometry::TVec3f *out, JGeometry::TVec3f &basePos, JGeometry::TVec3f &scale, JGeometry::TVec3f &dirX, JGeometry::TVec3f &dirY, JGeometry::TVec3f &dirZ) {
     out->scaleAdd(scale.x, dirX, basePos);
     out->scaleAdd(scale.y, dirY, *out);
     out->scaleAdd(scale.z, dirZ, *out);

@@ -14,8 +14,8 @@ class GeoCar;
 class GeoCarSupervisor : public GeoObjSupervisor, JKRDisposer
 {
 public:
-    GeoCarSupervisor();
-    void entryCar(GeoCar *, bool);
+    inline GeoCarSupervisor();
+    inline void entryCar(GeoCar *, bool);
     int getCarNumber();
     void hideAllCar();
 
@@ -35,18 +35,18 @@ public:
     GeoCar(u32, bool);                                                                                    // 0x801bab60
     GeoCar(const CrsData::SObject &);                                                                     // 0x801bacc0
     void init(bool);                                                                                      // 0x801bada0
-    void calcFrPos();                                                                                     // 0x801bb124
-    void calcBcPos();                                                                                     // 0x801bb160
+    inline void calcFrPos();                                                                             // 0x801bb124
+    inline void calcBcPos();                                                                             // 0x801bb160
     void setTargetPoint(u16);                                                                             // 0x801bb50c
     void resetDrivePower();                                                                               // 0x801bb688
     void calcFrontAndBackPosition();                                                                      // 0x801bb6cc
-    bool isHorn();                                                                                        // 0x801bb730
+    inline bool isHorn();                                                                                    // 0x801bb730
     void setTevColor();                                                                                   // 0x801bb994
     void recvStateRequest();                                                                              // 0x801bb9c0
     void checkKartCollision();                                                                            // 0x801bba20
     void setCrushSE(u32);                                                                                 // 0x801bbba4
     void checkItemCollision();                                                                            // 0x801bbbfc
-    void getTargetPosition(JGeometry::TVec3f *);                                                          // 0x801bbf20
+    inline void getTargetPosition(JGeometry::TVec3f *);                                                      // 0x801bbf20
     void setAllObjectCollision(bool);                                                                     // 0x801bc05c
     f32 getTireAnmRate();                                                                                 // 0x801bc0e0
     f32 getTireAnmRate(f32);                                                                              // 0x801bc118
