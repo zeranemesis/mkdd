@@ -95,18 +95,98 @@ def proposals(retail, mseq, min_block=MIN_BLOCK, taken=()):
     return [(i, j) for i, j in pairs if first[mseq[j][2]] == j and mseq[j][2] not in taken]
 
 
+def map_section_rows(map_path, sections):
+    """{section: [(addr, size, name)]} in layout order, data/rodata rows only."""
+    out = {s: [] for s in sections}
+    section = None
+    with map_path.open(encoding="utf-8", errors="replace") as f:
+        for line in f:
+            m = SEC.match(line)
+            if m:
+                section = m.group(1)
+                continue
+            if section not in out:
+                continue
+            m = ROW.match(line)
+            if not m:
+                continue
+            kind = int(m.group(4))
+            if kind == 1:                      # the section row itself
+                continue
+            size = int(m.group(2), 16)
+            if size == 0:
+                continue
+            name = m.group(5)
+            if not usable(name):
+                continue
+            out[section].append((int(m.group(3), 16), size, name))
+    for s in out:
+        out[s].sort()
+    return out
+
+
+DATA_SECTIONS = (".rodata", ".data", ".sdata", ".sbss", ".sdata2", ".sbss2", ".bss")
+SYM_ANY = re.compile(r"^(\S+) = (\.[\w.]+):0x([0-9A-Fa-f]+); // type:(\w+) size:0x([0-9A-Fa-f]+)(.*)$")
+
+
+def retail_by_section(sym_path):
+    out = {}
+    for line in sym_path.read_text(encoding="utf-8").splitlines():
+        m = SYM_ANY.match(line.strip())
+        if not m:
+            continue
+        out.setdefault(m.group(2), []).append(
+            (int(m.group(3), 16), int(m.group(5), 16), m.group(1), (m.group(6) or "").strip()))
+    for s in out:
+        out[s].sort()
+    return out
+
+
+def data_proposals(root, min_block):
+    mrows = map_section_rows(root / "orig/Release_eu/sys/files/debugInfoS.MAP", DATA_SECTIONS)
+    rsym = retail_by_section(root / "config/Release_eu/symbols.txt")
+    taken = set()
+    for s, rows in rsym.items():
+        for addr, size, name, _ in rows:
+            if not name.startswith("lbl_"):
+                taken.add(name)
+    out = {}
+    for s in DATA_SECTIONS:
+        rows = mrows.get(s) or []
+        syms = rsym.get(s) or []
+        if not rows or not syms:
+            continue
+        sm = difflib.SequenceMatcher(a=[r[1] for r in syms], b=[r[1] for r in rows], autojunk=False)
+        pairs = []
+        for b in sm.get_matching_blocks():
+            if b.size < min_block:
+                continue
+            for k in range(b.size):
+                pairs.append((b.a + k, b.b + k))
+        first = {}
+        for j, r in enumerate(rows):
+            first.setdefault(r[2], j)
+        out[s] = [(syms[i], rows[j]) for i, j in pairs
+                  if first[rows[j][2]] == j and rows[j][2] not in taken]
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", type=Path, default=Path("."))
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--stats", action="store_true")
     ap.add_argument("--write", action="store_true")
+    ap.add_argument("--data", action="store_true", help="operate on data sections")
     ap.add_argument("--min-block", type=int, default=MIN_BLOCK)
     args = ap.parse_args()
 
     root = args.root
-    map_path = root / "orig/Release_eu/sys/files/debugInfoS.MAP"
     sym_path = root / "config/Release_eu/symbols.txt"
+    if args.data:
+        return data_main(root, sym_path, args)
+
+    map_path = root / "orig/Release_eu/sys/files/debugInfoS.MAP"
 
     mseq = map_text_functions(map_path)
     retail = retail_functions(sym_path)
@@ -168,6 +248,55 @@ def main():
             out.append(line.rstrip())
         sym_path.write_text("\n".join(out) + "\n", encoding="utf-8")
         print("renamed %d symbols in %s" % (applied, sym_path))
+    return 0
+
+
+def data_main(root, sym_path, args):
+    prop = data_proposals(root, args.min_block)
+    if args.check:
+        ok = bad = total = 0
+        rows = []
+        for s, pairs in prop.items():
+            for (raddr, rsize, rname, rtail), (maddr, msize, mname) in pairs:
+                total += 1
+                if rname.startswith("lbl_"):
+                    continue
+                if rname == mname:
+                    ok += 1
+                else:
+                    bad += 1
+                    rows.append((s, hex(raddr), rname, mname))
+        print("data proposals: %d" % total)
+        print("accuracy on already-named: ok=%d bad=%d (%.2f%%)"
+              % (ok, bad, 100.0 * ok / max(1, ok + bad)))
+        for r in rows[:20]:
+            print("   %-8s %s retail=%-40s map=%s" % r)
+        return 0
+    if args.stats:
+        for s, pairs in prop.items():
+            print("%-9s %6d proposals" % (s, len(pairs)))
+        return 0
+    if args.write:
+        newname = {}
+        for s, pairs in prop.items():
+            for (raddr, rsize, rname, rtail), (maddr, msize, mname) in pairs:
+                if rname.startswith("lbl_"):
+                    continue
+                newname[(s, raddr)] = (mname, rsize, rtail)
+        out, applied = [], 0
+        for line in sym_path.read_text(encoding="utf-8").splitlines():
+            m = SYM_ANY.match(line.strip())
+            if m:
+                key = (m.group(2), int(m.group(3), 16))
+                if key in newname:
+                    name, size, tail = newname[key]
+                    out.append("%s = %s:0x%08X; // type:%s size:0x%X%s"
+                               % (name, m.group(2), key[1], m.group(4), size, tail))
+                    applied += 1
+                    continue
+            out.append(line.rstrip())
+        sym_path.write_text("\n".join(out) + "\n", encoding="utf-8")
+        print("renamed %d data symbols in %s" % (applied, sym_path))
     return 0
 
 
