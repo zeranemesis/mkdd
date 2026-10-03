@@ -115,6 +115,12 @@ const RaceMgr::EventInfo RaceMgr::sEventTable[] = {
     {0x305, "エフェクト", " EFFECT"},
     {-1, "なし", nullptr}};
 
+// retail keeps a dead "LINE%4d:(%d/%d)\n" literal in this TU's string pool at
+// .rodata+0x464, between sEventTable and the SYSDBG group names. JUT_REPORT_MSG is
+// a no-op in release, so the literal has to be anchored here to keep every
+// SYSDBG_SetHeapGroup offset (0x478..0x564) identical to retail.
+static const char sHeapLineFmt[] = "LINE%4d:(%d/%d)\n";
+
 // fabircated to generate certain data first
 // just ignore it
 void PrintRaceHeap(u32 free, JKRHeap *heap)
