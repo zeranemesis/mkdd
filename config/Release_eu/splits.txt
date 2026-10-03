@@ -532,6 +532,11 @@ Kaneshige/GhostScreen.cpp:
 	.text start:0x801AB0A0 end:0x801AB4EC
 
 
+Kaneshige/GeoPuller.cpp:
+	.text start:0x801AB4EC end:0x801AC3E0
+	.ctors start:0x802D8710 end:0x802D8714
+
+
 Kaneshige/Movie/MoviePlayer.cpp:
 	.text start:0x801B0084 end:0x801B0458
 	.rodata start:0x8033DD98 end:0x8033DDC0
