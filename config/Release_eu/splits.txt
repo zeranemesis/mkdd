@@ -855,12 +855,15 @@ Kaneshige/GeoCar.cpp:
 
 Kaneshige/GeoBus.cpp:
 	.text start:0x801935F0 end:0x80193E4C
+	.ctors start:0x802D86A4 end:0x802D86A8
 
 Kaneshige/GeoTruck.cpp:
 	.text start:0x80193E4C end:0x80194678
+	.ctors start:0x802D86A8 end:0x802D86AC
 
 Kaneshige/GeoNormCar.cpp:
 	.text start:0x80194FCC end:0x8019588C
+	.ctors start:0x802D86B0 end:0x802D86B4
 
 Kaneshige/GeoCannon.cpp:
 	.text start:0x8019588C end:0x801969BC
@@ -871,21 +874,26 @@ Kaneshige/GeoCannon.cpp:
 
 Kaneshige/GeoBombCar.cpp:
 	.text start:0x801969BC end:0x80197528
+	.ctors start:0x802D86B8 end:0x802D86BC
 
 Kaneshige/GeoKuriCar.cpp:
 	.text start:0x80198820 end:0x80198D38
+	.ctors start:0x802D86C0 end:0x802D86C4
 
 Kaneshige/GeoItemCar.cpp:
 	.text start:0x80198D38 end:0x80199954
+	.ctors start:0x802D86C4 end:0x802D86C8
 
 Kaneshige/GeoHanaCar.cpp:
 	.text start:0x80199954 end:0x8019A080
+	.ctors start:0x802D86C8 end:0x802D86CC
 
 Kaneshige/GeoHanaBody.cpp:
 	.text start:0x8019A080 end:0x8019A9A8
 
 Kaneshige/GeoCarShadow.cpp:
 	.text start:0x8019A9A8 end:0x8019B248
+	.ctors start:0x802D86D0 end:0x802D86D4
 
 Kaneshige/GeoDkCloud.cpp:
 	.text start:0x801A103C end:0x801A1650
