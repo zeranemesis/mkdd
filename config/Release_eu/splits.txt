@@ -851,6 +851,15 @@ Sato/GeographyObjMgr.cpp:
 	.text start:0x801ED470 end:0x801F6794
 	.ctors start:0x802D87DC end:0x802D87E0
 
+Kaneshige/GeoRabbitMark.cpp:
+	.text start:0x801A451C end:0x801A6658
+
+Sato/GeoItemBox.cpp:
+	.text start:0x801FAE30 end:0x801FCD40
+
+Sato/StateObserver.cpp:
+	.text start:0x80235D80 end:0x80235EA4
+
 dolphin/eth/eth.c:
 	.text start:0x800E111C end:0x800E3C7C
 	.data start:0x80351750 end:0x803517C4
