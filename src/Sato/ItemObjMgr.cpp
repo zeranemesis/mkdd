@@ -128,30 +128,6 @@ ItemObjMgr::ItemObjMgr()
 
     if (_820)
         initCharShadowModelData();
-
-    if (RCMGetManager()->isLANMode())
-    {
-        JKRHeap *dbgHeap = GetSysDebug()->getDebugHeap();
-
-        if (dbgHeap)
-        {
-            if (sLANDbgDataPtr == nullptr)
-                sLANDbgDataPtr = new (dbgHeap, 0) SLAN_DebugItemDataArray[300];
-            if (sLANDbgKartPadBuffer == nullptr)
-                sLANDbgKartPadBuffer = new (dbgHeap, 0) SLAN_DebugKartPadDataArray[300];
-        }
-
-        if (sLANDbgDataPtr && sLANDbgKartPadBuffer)
-        {
-            for (u32 i = 0; i < 300; i++)
-            {
-                for (u32 j = 0; j < 64; j++)
-                    sLANDbgDataPtr[i].itemData[j].reset();
-                for (u32 j = 0; j < 16; j++)
-                    sLANDbgKartPadBuffer[i].padData[j].reset();
-            }
-        }
-    }
 }
 
 ItemObjMgr::~ItemObjMgr() {}
