@@ -636,12 +636,15 @@ def main():
             return 1
         e = attr[stem]
         funcs = objs[stem]
-        print("map object %s: %d functions, %d bytes of .text" % (stem, len(funcs), e["map_bytes"]))
-        if not e["run"]:
-            print("no consecutive size run found: this unit is not attributable from the map")
+        map_bytes = e.get("map_bytes", sum(s for _, s in funcs))
+        print("map object %s: %d functions, %d bytes of .text" % (stem, len(funcs), map_bytes))
+        if not e.get("start"):
+            print("no range derived: this unit is not attributable from the map")
             return 1
-        print("run %d/%d functions, coverage %.0f%%" % (e["run"], len(funcs), e["coverage"] * 100))
-        print("retail .text 0x%08X - 0x%08X  (%d bytes)" % (e["start"], e["end"], e["bytes"]))
+        print("placed %d retail functions (%d by name, %d inherited), %d bytes of code in a %d byte span"
+              % (e["funcs"], e.get("named", 0), e.get("inherited", 0),
+                 e.get("code", e["bytes"]), e["bytes"]))
+        print("retail .text 0x%08X - 0x%08X" % (e["start"], e["end"]))
         lo, hi = e["start"], e["end"]
         print("\n%-12s %-7s %-7s %-42s %s" % ("addr", "map sz", "retail", "retail name", "map name"))
         for addr, size, name in retail:
