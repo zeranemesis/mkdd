@@ -2922,6 +2922,9 @@ global:
   0x8011d7dc: clearInvincibleBgm__Q29GameAudio12KartSoundMgrFUc
   0x8011d974: setChibiFlag__Q29GameAudio12KartSoundMgrFbb
   
+  # NpcCarSoundMgr.cpp
+  0x8011e298: frameWork__Q29GameAudio14NpcCarSoundMgrFfb
+
   # GameSoundTable.cpp
   0x8011fb74: getBgmSeqResourceID__Q29GameAudio16CustomSoundTableCF10JAISoundID
   0x8011fbf0: getSoundType__Q29GameAudio16CustomSoundTableCF10JAISoundID
@@ -3653,6 +3656,10 @@ global:
   0x803d57d8: sIndTexScaleS__13ShimmerScreen
   0x803d57dc: sIndTexScaleT__13ShimmerScreen
   0x803d57e0: sIndReplace__13ShimmerScreen
+
+  # DarkAnmMgr.cpp
+  0x801ae13c: setTevColor__13DarkAnmPlayerFP7ExModel
+  0x801ae178: __ct__16ObjDarkAnmPlayerFUl
 
   # RaceTime.cpp
   0x801b1d9c: get__8RaceTimeCFPiPiPi
