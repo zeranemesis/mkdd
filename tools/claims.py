@@ -127,15 +127,15 @@ def main():
             # the complete_ byte count over the total, objdiff's own percentage,
             # then matched_* equal to total_* as evidence the whole section hit.
             code = resolve(m, "code")
-            data = resolve(m, "data")
+            data_pct = resolve(m, "data")
             code_bytes = int(m.get("total_code", 0) or 0)
             data_bytes = int(m.get("total_data", 0) or 0)
             if data and not code:
                 kind = "data-only object, needs code first"
             elif code and not data:
                 kind = "code-complete, data sections short"
-            elif code and data:
-                kind = "every section complete"
+            if data_pct and not code:
+                kind = "data-only object, needs code first"
             else:
                 kind = "no code and no data bytes matched"
             rows.append({
@@ -145,7 +145,7 @@ def main():
                 # fuzzy score that also credits near-misses. A unit may only go
                 # into matching.txt on complete_code == complete_data == 100.
                 "code": code,
-                "data": data,
+                "data": data_pct,
                 "fuzzy": float(m.get("matched_code_percent", 0.0)),
                 "fns": float(m.get("matched_functions_percent", 0.0)),
                 "code_bytes": code_bytes,
