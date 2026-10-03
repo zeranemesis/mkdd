@@ -271,9 +271,11 @@ cflags_jsystem = [
 
 # The European retail build of the J3D/J3DU libraries was made with the
 # peephole optimizer disabled, the same way the other JSystem libraries are
-# built for this version.
-j3d_cflags = ["-opt nopeephole"] if config.version == "Release_eu" else []
-j3du_cflags = ["-opt nopeephole"] if config.version == "Release_eu" else []
+# built for this version. JAudio is the same case: JASHeapCtrl goes from 66.67%
+# to 100.00% and JASTrack from 10.13% to 34.16% with -opt nopeephole.
+nopeephole_cflags = ["-opt nopeephole"] if config.version == "Release_eu" else []
+j3d_cflags = nopeephole_cflags
+j3du_cflags = nopeephole_cflags
 
 # Game flags
 cflags_game = [
@@ -840,7 +842,7 @@ config.libs = [
     ),
     JSystemLib(
         "JAudio",
-        ["-O4,p"],
+        ["-O4,p"] + nopeephole_cflags,
         [
             Object(Matching, "JSystem/JAudio/Interface/JAIAudience.cpp"),
             Object(Matching, "JSystem/JAudio/Interface/JAISe.cpp"),
@@ -1138,7 +1140,7 @@ config.libs = [
         ["-inline off"],
         [
             Object(Matching, "Kaneshige/DrawBuffer.cpp"),
-            Object(Matching, "Kaneshige/Course/Course.cpp"),
+            Object(Matching, "Kaneshige/Course/Course.cpp", cflags=cflags_game if config.version == "Release_eu" else cflags_game + ["-inline off"]),
             Object(Matching, "Kaneshige/Course/CrsData.cpp"),
             Object(Matching, "Kaneshige/Course/CrsGround.cpp"),
             Object(Equivalent, "Kaneshige/ExModel.cpp"),

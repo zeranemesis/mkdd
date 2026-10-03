@@ -35,7 +35,7 @@ from collections import Counter
 from pathlib import Path
 
 SYM = re.compile(r"^(\S+) = (\.[\w.]+):0x([0-9A-Fa-f]+); // type:(\w+) size:0x([0-9A-Fa-f]+)(.*)$")
-YML = re.compile(r"^  (0x[0-9a-f]{8}): ([^\s#]+)(?: #.*)?$")
+YML = re.compile(r"^  (0x[0-9a-f]{8}): ([^\s#]+)\s*(?:#.*)?$")
 
 LO, HI = 0x80000000, 0x80420000
 PLACEHOLDER = ("fn_", "lbl_", "@")
