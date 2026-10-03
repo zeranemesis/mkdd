@@ -522,15 +522,6 @@ Kaneshige/CenterLine.cpp:
 	.text start:0x8018B004 end:0x8018B298
 
 
-Kaneshige/RaceLight.cpp:
-	.text start:0x8018BB3C end:0x8018D270
-	.text start:0x8018D3AC end:0x8018D82C
-	.text start:0x8018D8AC end:0x8018DF4C
-	.text start:0x8018DFC0 end:0x8018E444
-	.ctors start:0x802D8690 end:0x802D8694
-	.data start:0x80355BE0 end:0x80355CC0
-
-
 Kaneshige/SimpleDrawer.cpp:
 	.text start:0x80190190 end:0x80190324
 	.sdata start:0x803D38F0 end:0x803D38F8

@@ -170,4 +170,3 @@ JSystem/JUtility/JUTProcBar.cpp
 Kaneshige/KartChecker.cpp
 Kameda/WipeManager.cpp
 Osako/CardAgent.cpp
-Kaneshige/RaceLight.cpp
