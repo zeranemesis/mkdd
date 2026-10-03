@@ -54,7 +54,9 @@ public:
     virtual const char *getBmdFileName() { return "/Objects/Cannon1.bmd"; } // 0x801c065c
     static GeoCannonSupervisor *getSupervisor() { return sSupervisor; }
     
-    virtual void initClassCreateNum() { sSupervisorCreateNum = 0; }   // 0x801c0668
+    // EU retail: this virtual slot holds the GeoCannon override that zeroes
+    // sSupervisorCreateNum; the JP build had initClassCreateNum here instead.
+    virtual void resetHio() { sSupervisorCreateNum = 0; }   // 0x801c0668
 
     virtual void InitExec(); // 0x801c035c
     virtual void MoveExec();// 0x801c0470
