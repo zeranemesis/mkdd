@@ -201,3 +201,11 @@ Shiraiwa/WipeWave.cpp
 Yamamoto/kartCtrl.cpp
 Yamamoto/kartLine.cpp
 Yamamoto/KartTaeget.cpp
+Kaneshige/GeoBombCar.cpp
+Kaneshige/GeoBus.cpp
+Kaneshige/GeoCarShadow.cpp
+Kaneshige/GeoHanaCar.cpp
+Kaneshige/GeoItemCar.cpp
+Kaneshige/GeoKuriCar.cpp
+Kaneshige/GeoNormCar.cpp
+Kaneshige/GeoTruck.cpp
