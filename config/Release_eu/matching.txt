@@ -151,6 +151,7 @@ dolphin/card/CARDCheck.c
 dolphin/card/CARDMount.c
 Kaneshige/THP/THPRead.c
 Kaneshige/THP/THPVideoDecode.c
+dolphin/vi/vi.c
 dolphin/dvd/emu_level2/fstload.c
 MSL_C/MSL_Common/float.c
 JSystem/J3DU/J3DUClipper.cpp
