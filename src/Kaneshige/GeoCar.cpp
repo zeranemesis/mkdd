@@ -407,8 +407,9 @@ void GeoCar::checkKartCollision() {
         if (GeographyObj::tstIsHitKartFlg(i)) {
             hitKart(i);
             if (isHitVibrationOn()) {
+                KartCtrl *ctrl = GetKartCtrl();
                 getVibrationLimitSpeed();
-                GetKartCtrl()->GetCarSpeed(i);
+                ctrl->GetCarSpeed(i);
             } 
         }
     }
