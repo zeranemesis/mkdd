@@ -818,6 +818,7 @@ Kaneshige/GeoShine.cpp:
 
 Kaneshige/Course/CrsGround.cpp:
 	.text start:0x8017EA48 end:0x80180F38
+	.ctors start:0x802D866C end:0x802D8670
 
 dolphin/eth/eth.c:
 	.text start:0x800E111C end:0x800E3C7C
