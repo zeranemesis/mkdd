@@ -161,7 +161,7 @@ void JASTrack::initTimed() {
     }
 }
 
-void JASTrack::inherit(const JASTrack& parent) {
+inline void JASTrack::inherit(const JASTrack& parent) {
     mFlags.flag2 = parent.mFlags.flag2;
     mBankNumber = parent.mBankNumber;
     mProgNumber = parent.mProgNumber;
@@ -306,7 +306,7 @@ void JASTrack::setLatestKey(u8 p1) {
     _22b += getTransposeTotal();
 }
 
-JASChannel *JASTrack::channelStart(JASTrack::TChannelMgr *channelMgr, u32 p2, u32 p3, u32 updateTimer) {
+inline JASChannel *JASTrack::channelStart(JASTrack::TChannelMgr *channelMgr, u32 p2, u32 p3, u32 updateTimer) {
     JASBank *bank = NULL;
     if (mBankTable != NULL) {
         bank = mBankTable->getBank(mBankNumber);
@@ -607,7 +607,7 @@ u16 JASTrack::readPort(u32 p1) {
     return mTrackPort.readExport(p1);
 }
 
-void JASTrack::setChannelPauseFlag(bool pause) {
+inline void JASTrack::setChannelPauseFlag(bool pause) {
     for (u32 i = 0; i < mChannelMgrCount; i++) {
         TChannelMgr *mgr = mChannelMgrs[i];
         if (mgr) {
@@ -668,7 +668,7 @@ void JASTrack::setTimebase(u16 timebase) {
     mFlags.flag5 = true;
 }
 
-void JASTrack::updateChannel(JASChannel *ch, JASDsp::TChannel *dspCh) {
+inline void JASTrack::updateChannel(JASChannel *ch, JASDsp::TChannel *dspCh) {
     ch->setVibrate(mVibDepth, mVibPitch);
     ch->setTremolo(mTremDepth, mTremPitch);
     if (mFilterMode & 0x20) {

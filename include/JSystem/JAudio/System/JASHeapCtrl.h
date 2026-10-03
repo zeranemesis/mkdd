@@ -260,22 +260,27 @@ struct JASMemPool_MultiThreaded : public JASGenericMemPool
     
     void newMemPool(int count)
     {
-        TLock lock(*this);
+        volatile BOOL level = OSDisableInterrupts();
         JASGenericMemPool::newMemPool(sizeof(T), count);
+        OSRestoreInterrupts(level);
     }
 
     void *alloc(u32 n)
     {
-        TLock lock(*this);
-        return JASGenericMemPool::alloc(n);
+        volatile BOOL level = OSDisableInterrupts();
+        void *result = JASGenericMemPool::alloc(n);
+        OSRestoreInterrupts(level);
+        return result;
     }
 
     void free(void* ptr, u32 n) {
-        TLock lock(*this);
+        volatile BOOL level = OSDisableInterrupts();
         JASGenericMemPool::free(ptr, n);
+        OSRestoreInterrupts(level);
     }
 
-    
+    ~JASMemPool_MultiThreaded();
+
 };
 
 
