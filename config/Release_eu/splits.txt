@@ -903,6 +903,9 @@ Kaneshige/Course/Course.cpp:
 	.sdata start:0x803D3890 end:0x803D38C0
 	.sbss start:0x803D5610 end:0x803D5618
 	.sdata2 start:0x803D8520 end:0x803D85A0
+	.rodata start:0x8033CB80 end:0x8033CBD8
+	.data start:0x80355880 end:0x80355990
+	.bss start:0x8038A220 end:0x8038A250
 
 Kaneshige/Course/CrsGround.cpp:
 	.text start:0x8017EA48 end:0x80180F38
