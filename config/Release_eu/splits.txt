@@ -559,6 +559,10 @@ JSystem/JAudio/Utility/JAUBankTable.cpp:
 	.data start:0x8034F3B0 end:0x8034F3BC
 
 
+JSystem/JAudio/System/JASHeapCtrl.cpp:
+	.text start:0x80090ACC end:0x80090E14
+
+
 dolphin/dsp/dsp.c:
 	.text start:0x800B31B8 end:0x800B3308
 	.data start:0x8034FC60 end:0x8034FCE0

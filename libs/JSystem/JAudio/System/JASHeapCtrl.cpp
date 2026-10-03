@@ -226,7 +226,7 @@ void JASSolidHeap::init(u8 *, u32) {
 }
 
 void JASSolidHeap::alloc(u32) {
-    JUT_REPORT_MSG("Not enough Memory")
+    JUT_REPORT_MSG("Not enough Memory");
 }
 
 void JASSolidHeap::freeLast() {
