@@ -525,6 +525,7 @@ dolphin/ar/arq.c:
 
 JSystem/JAudio/Utility/JAUBankTable.cpp:
 	.text start:0x800A3148 end:0x800A318C
+	.data start:0x8034F3B0 end:0x8034F3BC
 
 
 dolphin/dsp/dsp.c:

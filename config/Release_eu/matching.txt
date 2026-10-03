@@ -159,3 +159,4 @@ Osako/GameApp.cpp
 JSystem/JUtility/JUTResource.cpp
 JSystem/JUtility/JUTNameTab.cpp
 Kameda/Cup2D.cpp
+JSystem/JAudio/Utility/JAUBankTable.cpp
