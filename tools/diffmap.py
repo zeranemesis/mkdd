@@ -20,16 +20,19 @@ SLICES = r"config/Release_eu/dol_slices.yml"
 # header records .init's file offset at 0x00 and its vaddr at 0x48.
 HEADER_FOFF_INIT = 0x00
 HEADER_VADDR_INIT = 0x48
+# A DOL records one file offset and one vaddr per section, so each section has
+# its own delta. .sdata and .sdata2 live in a later segment and do NOT share
+# the .text delta, which is the trap that makes them look broken.
 HEADER_SECTIONS = (
-    # (name, vaddr word, size word)
-    (".text", 0x4C, 0x94),
-    (".ctors", 0x6C, 0xB4),
-    (".dtors", 0x70, 0xB8),
-    (".BINARY", 0x74, 0xBC),
-    (".rodata", 0x78, 0xC0),
-    (".data", 0x7C, 0xC4),
-    (".sdata", 0x80, 0xC8),
-    (".sdata2", 0x84, 0xCC),
+    # (name, foff word, vaddr word, size word, foff word is 0 for .text)
+    (".text", 0x00, 0x4C, 0x94, True),
+    (".ctors", 0x24, 0x6C, 0xB4, False),
+    (".dtors", 0x28, 0x70, 0xB8, False),
+    (".BINARY", 0x2C, 0x74, 0xBC, False),
+    (".rodata", 0x30, 0x78, 0xC0, False),
+    (".data", 0x34, 0x7C, 0xC4, False),
+    (".sdata", 0x38, 0x80, 0xC8, False),
+    (".sdata2", 0x3C, 0x84, 0xCC, False),
 )
 
 SPLIT_RE = re.compile(r"^(\S+):\s*$")
@@ -42,8 +45,15 @@ def dol_sections(path):
 
     d = open(path, "rb").read()
     word = lambda o: struct.unpack(">I", d[o:o + 4])[0]
-    delta = word(HEADER_VADDR_INIT) - word(HEADER_FOFF_INIT)
-    out = [(n, word(va), word(sz), delta) for n, va, sz in HEADER_SECTIONS]
+    first_delta = word(0x48) - word(0x00)
+    out = []
+    for name, foff_word, va_word, sz_word, from_init in HEADER_SECTIONS:
+        addr = word(va_word)
+        delta = first_delta if from_init else addr - word(foff_word)
+        foff = word(foff_word) if not from_init else addr - delta
+        # the header rounds section sizes up to the 0x20 file alignment
+        size = min(word(sz_word), len(d) - foff)
+        out.append((name, addr, size, delta))
     out.sort(key=lambda s: s[1])
     return out
 
