@@ -38,4 +38,6 @@ void SceneTitle::demo() {}
 
 void SceneTitle::titleMenuAnm() {}
 
+SceneTitleParam::~SceneTitleParam() {}
+
 #include "JSystem/JAudio/JASFakeMatch2.h"

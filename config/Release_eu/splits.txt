@@ -304,6 +304,13 @@ Kameda/Scene.cpp:
 	.text       start:0x8012CFBC end:0x8012D020
 	.data       start:0x803549A0 end:0x803549B8
 
+Kameda/SceneTitle.cpp:
+	.text       start:0x8012D424 end:0x8012E5EC
+	.ctors      start:0x802D85F4 end:0x802D85F8
+	.rodata     start:0x803351F8 end:0x803352B0
+	.data       start:0x803549D0 end:0x803549F8
+	.sdata      start:0x803D3860 end:0x803D3868
+
 Kaneshige/ShapePktControl.cpp:
 	.text       start:0x80190134 end:0x80190190
 

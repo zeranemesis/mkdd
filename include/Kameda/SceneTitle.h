@@ -7,7 +7,7 @@
 class SceneTitleParam : public JORReflexible {
 public:
     SceneTitleParam();
-    virtual ~SceneTitleParam() {}
+    virtual ~SceneTitleParam();
 
     static u8 mDemoType;
 };
