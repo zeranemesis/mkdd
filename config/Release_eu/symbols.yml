@@ -1458,6 +1458,9 @@ global:
   0x800a17e4: free__50JASMemPool_MultiThreaded<Q28JASTrack11TChannelMgr>FPvUl
   0x800a1844: __dl__43JASPoolAllocObject_MultiThreaded<8JASTrack>FPvUl
   0x800a189c: __dl__58JASPoolAllocObject_MultiThreaded<Q28JASTrack11TChannelMgr>FPvUl
+  0x803334b0: sAdsTable__8JASTrack
+  0x803334c8: sEnvOsc__8JASTrack
+  0x803334e0: sPitchEnvOsc__8JASTrack
   0x8034d498: __vt__19JASDefaultBankTable
   0x8034d4a4: __vt__17JASBankTable<256>
   0x8034d4b0: __vt__11JASBankList

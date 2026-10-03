@@ -43,6 +43,7 @@ JSystem/JAudio/System/JASHeapCtrl.cpp:
 
 JSystem/JAudio/System/JASTrack.cpp:
 	.text       start:0x8009E0F8 end:0x800A1918
+	.rodata     start:0x803334B0 end:0x803334F8
 
 Sato/J3DAnmObject.cpp:
 	.text       start:0x802307B0 end:0x80231248
