@@ -865,3 +865,12 @@ Sato/JPEffectMgr.cpp:
 	.text start:0x801FCD40 end:0x801FE5AC
 	.sdata start:0x803D3BC0 end:0x803D3BE0
 	.sbss start:0x803D5D40 end:0x803D5D50
+
+Yamamoto/kartCamera.cpp:
+	.text start:0x8029DFFC end:0x8029F4B8
+
+Yamamoto/kartCtrl.cpp:
+	.text start:0x8029F4B8 end:0x802A0A60
+
+Kaneshige/RaceMgr.cpp:
+	.text start:0x80186824 end:0x801899A0
